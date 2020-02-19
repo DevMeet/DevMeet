@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Container, Row, Col} from 'react-bootstrap'
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +11,9 @@ class App extends Component {
 
   render() {
     return (
-        <div>hello hello</div>
+        <div>
+            hello
+        </div>
     )
   }
 }
