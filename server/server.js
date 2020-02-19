@@ -18,7 +18,7 @@ app.use('/', (req, res) => {
 });
 
 // catch-all route handler for any requests to an unknown route
-app.use('/*', (req, res) => res.sendStatus(404));
+app.use('*', (req, res) => res.sendStatus(404));
 
 // Global error handler
 app.use((err, req, res, next) => {
@@ -33,3 +33,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => console.log(`Server is listening on port: ${PORT}`));
+
+module.exports = app;
