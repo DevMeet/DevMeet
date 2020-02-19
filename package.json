@@ -11,8 +11,8 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode development"
+    "dev": "webpack-dev-server --open --hot --mode development",
+    "build": "webpack --mode production"
   },
   "eslintConfig": {
     "extends": "react-app"
