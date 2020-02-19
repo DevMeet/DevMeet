@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Container, Row, Col} from 'react-bootstrap'
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +10,15 @@ class App extends Component {
 
   render() {
     return (
-        <div></div>
+        <Container fluid>
+            <HistoryProvide>
+                <Row>
+                    <Col>
+                    <Sidebar />
+                    </Col>
+                </Row>
+            </HistoryProvide>
+        </Container>
     )
   }
 }
