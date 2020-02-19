@@ -10,15 +10,7 @@ class App extends Component {
 
   render() {
     return (
-        <Container fluid>
-            <HistoryProvide>
-                <Row>
-                    <Col>
-                    <Sidebar />
-                    </Col>
-                </Row>
-            </HistoryProvide>
-        </Container>
+        <div>hello hello</div>
     )
   }
 }
