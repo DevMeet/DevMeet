@@ -1,6 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -30,13 +28,6 @@ module.exports = {
       '/': 'http://localhost:3000'
     }
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Code Compete',
-      template: './client/index.html'
-    })
-  ],
   mode: process.env.NODE_ENV,
   output: {
     filename: 'bundle.js',
@@ -46,7 +37,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -65,5 +56,8 @@ module.exports = {
         use: ['url-loader?limit=10000']
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 };

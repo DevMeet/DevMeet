@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // default for serving index
 app.use('/', (req, res) => {
-  res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
+  res.status(200).sendFile(path.resolve(__dirname, '../src/index.html'));
 });
 
 // catch-all route handler for any requests to an unknown route
