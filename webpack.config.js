@@ -1,39 +1,39 @@
 const path = require('path');
 
 module.exports = {
-  entry: {
-    app: './src/index.js'
-  },
+  mode: process.env.NODE_ENV,
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: {
-    host: 'localhost',
-    port: 8080,
-    contentBase: path.resolve(__dirname, 'build'),
-    // enable HMR on the devServer
-    hot: true,
-    // match the output 'publicPath'
-    publicPath: '/',
-    // fallback to root for other urls
-    historyApiFallback: true,
+  // entry: {
+  //   app: './src/js/index.js'
+  // },
+  // output: {
+  //   path: path.resolve(__dirname, 'build'),
+  //   publicPath: '/',
+  //   filename: 'bundle.js'
+  // },
+  // devServer: {
+  //   host: 'localhost',
+  //   port: 8080,
+  //   contentBase: path.resolve(__dirname, 'build'),
+  //   // enable HMR on the devServer
+  //   hot: true,
+  //   // match the output 'publicPath'
+  //   publicPath: '/build/',
+  //   // fallback to root for other urls
+  //   historyApiFallback: true,
 
-    inline: true,
+  //   inline: true,
 
-    headers: { 'Access-Control-Allow-Origin': '*' },
+  //   headers: { 'Access-Control-Allow-Origin': '*' },
 
-    proxy: {
-      '/': 'http://localhost:3000'
-    }
-  },
-  mode: process.env.NODE_ENV,
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build'),
-    publicPath: '/build/'
-  },
+  //   proxy: {
+  //     '/': 'http://localhost:3000'
+  //   }
+  // },
   module: {
     rules: [
       {
@@ -59,5 +59,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
+  },
+  devServer: {
+    publicPath: '/build/',
+    proxy: {
+      '/': 'http://localhost:3000'
+    }
   }
 };
