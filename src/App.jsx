@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MainPage from "./containers/MainPage.jsx"
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class App extends Component {
 
   render() {
     return (
-        <div></div>
+        <MainPage/>
     )
   }
 }
