@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: './client/index.js'
+    app: './src/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'build'),
