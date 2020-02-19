@@ -4,27 +4,19 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js'
+    app: './client/index.js'
   },
-//   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
     hot: true,
     publicPath: '/build/',
-    // proxy: {
-    //   '/':
-    //   {
-    //     target: 'http://localhost:8080',
-    //     secure: false
-    //   }
-    // },
     filename: 'bundle.js',
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Code Compete',
-      template: './src/index.html'
+      template: './client/index.html'
     })
   ],
   mode: process.env.NODE_ENV,
