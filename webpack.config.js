@@ -1,51 +1,45 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require("path");
 
 module.exports = {
-  entry: {
-    app: './client/index.js'
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
-    hot: true,
-    publicPath: '/build/',
-    filename: 'bundle.js',
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Code Compete',
-      template: './client/index.html'
-    })
-  ],
-  mode: process.env.NODE_ENV,
+  entry: "./src/index.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build'),
-    publicPath: '/build/',
+    path: path.resolve(__dirname, "build"),
+    publicPath: "/",
+    filename: "bundle.js"
+  },
+  mode: process.env.NODE_ENV,
+  devServer: {
+    contentBase: path.join(__dirname, "./src"),
+    publicPath: "/build/",
+    historyApiFallback: true
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: ["@babel/preset-env", "@babel/preset-react"]
           }
         }
       },
       {
-        test: /\.(css)|(scss)$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /(css|scss)$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg|otf|jpg|gif)$/,
-        use: ['url-loader?limit=10000']
-      },
+        test: /\.(png|jpg|JPG|jpeg|gif|woff|woff2|eot|ttf|svg|ico)$/,
+        use: [
+          {
+            loader: "url-loader",
+          }
+        ]
+      }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 };
