@@ -33,7 +33,7 @@ userController.createUser = (req, res, next) => {
 
 // login verification
 userController.verifyUser = (req, res, next) => {
-  console.log('req.body: ', req.body)
+  // console.log('req.body: ', req.body)
   const { username, password } = req.body;
   const text = `
           SELECT username

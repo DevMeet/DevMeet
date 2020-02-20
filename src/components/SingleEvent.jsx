@@ -7,7 +7,7 @@ class SingleEvent extends Component {
   };
 
   render() {
-    
+    const newDate = moment(this.props.date).format('MMMM D, Y')
     return (
       <div>
         {this.props.name}

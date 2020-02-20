@@ -69,22 +69,22 @@ class LocationDropDown extends Component {
   }
 
   fetchFromAPI() {
-    // fetch('/events')
-    // .then(res => res.json())
-    // .then(data => {
-    //   let cityEvents = [];
-    //   console.log('inside fetchfromapi', data);
-    //   data.forEach((events) => {
-    //     if (events.city === this.state.selectedLocation) {
-    //       cityEvents.push(events);
-    //     }
-    //   });
-    //   console.log(cityEvents);
-    //   this.setState({
-    //     events: data
-    //   })
-    // })
-    // .catch(err => { console.log(err); })
+    fetch('/events')
+    .then(res => res.json())
+    .then(data => {
+      let cityEvents = [];
+      // console.log('inside fetchfromapi', data);
+      data.forEach((events) => {
+        if (events.city === this.state.selectedLocation) {
+          cityEvents.push(events);
+        }
+      });
+      // console.log(cityEvents);
+      this.setState({
+        events: data
+      })
+    })
+    .catch(err => { console.log(err); })
   }
 
   render() {

@@ -50,12 +50,12 @@ eventsController.getEvents = async (req, res, next) => {
 eventsController.saveDB = (req, res, next) => {
   // console.log('savedDB res.locals: ', res.locals)
   res.locals.results.forEach(event => {
-    const { date, name, description, eventid, url, venue, city } = event;
+    const { date, name, description, eventid, url, venue, city, longitude, latitude } = event;
     const text = `
-    INSERT INTO events (date, name, description, eventid, url, venue, city)
-    values($1, $2, $3, $4, $5, $6, $7)
+    INSERT INTO events (date, name, description, eventid, url, venue, city, longitude, latitude)
+    values($1, $2, $3, $4, $5, $6, $7, $8, $9)
 `
-    const values = [date, name, description, eventid, url, venue, city];
+    const values = [date, name, description, eventid, url, venue, city, longitude, latitude];
     db.query(text, values)
         .then(response => console.log(response))
         .catch(err => console.log(err))
