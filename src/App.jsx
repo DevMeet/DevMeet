@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import SidebarContainer from './containers/SidebarContainer.jsx';
 import { HashRouter, Route, Link, Switch } from 'react-router-dom'
 import { GoogleLogin } from 'react-google-login';
 
 //component imports
 import MainPage from "./containers/MainPage.jsx"
+
 
 class App extends Component {
   constructor(props) {
@@ -35,13 +37,13 @@ class App extends Component {
     console.log(this.state.events.name);
   }
 
-
   render() {
 
     return (
       <HashRouter>
         <div className="fullscreen">
-          <MainPage
+          <MainPage/>
+          <SidebarContainer
             events={this.state.events}
             loggedIn={this.state.loggedIn}
             loginHandleClick={this.loginHandleClick}
