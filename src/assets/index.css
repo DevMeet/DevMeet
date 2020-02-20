@@ -72,8 +72,11 @@
   padding: 15px 10px 6px 16px;
 }
 
-.dropdown {
+#dropdown {
   margin-left: 250px;
+  left: 400px;
+  top: 200px;
+
 }
 
 .signup {

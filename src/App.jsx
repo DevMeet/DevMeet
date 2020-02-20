@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       name: '',
-      email: ''
+      email: '',
+      selectedLocation: ''
     };
     this.loginHandleClick = this.loginHandleClick.bind(this);
   }
@@ -35,7 +36,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.events.name);
+    // console.log(this.state.events.name);
   }
 
   render() {
@@ -43,7 +44,9 @@ class App extends Component {
     return (
       <HashRouter>
         <div className="fullscreen">
-          <MainPage/>
+          <MainPage
+            selectedLocation={this.state.selectedLocation}
+          />
           <SidebarContainer
             events={this.state.events}
             loggedIn={this.state.loggedIn}
