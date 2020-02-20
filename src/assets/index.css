@@ -17,6 +17,7 @@
   width: 100vw;
   height: 100vh;
 }
+
 .title{
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -41,7 +42,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(49, 49, 49);
+  background-color: rgb(255, 255, 255);
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -49,17 +50,22 @@
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 20px;
-  color: #ffffff;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
   display: block;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   margin-left: 0px;
-  border-bottom: 1px solid rgba(196, 193, 193, 0.3)
+  border-bottom: 1px solid rgba(196, 193, 193, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
 }
 
 .sidenav a:hover {
   color: #7bff00;
 }
+
+
 
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
@@ -68,28 +74,128 @@
 }
 
 .google {
-  margin-left: 20px;
+  margin-left: 0px;
   padding: 15px 10px 6px 16px;
 }
 
-#dropdown {
-  margin-left: 250px;
-  left: 400px;
-  top: 200px;
-
+#login-box {
+  position: relative;
+  margin: 5% auto;
+  width: 600px;
+  height: 400px;
+  background: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.signup, .login {
-  background-color: rbg(255, 255, 255);
-  display: inline-flex;
-  align-items: center;
-  color: rgba(0, 0, 0, 0.54);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
-  padding: 0px;
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-bottom: 2px solid #16a085;
+  color: #16a085;
+  transition: 0.2s ease;
+}
+/* input[type="submit"] {
+  margin-top: 28px;
+  width: 120px;
+  height: 32px;
+  background: #16a085;
+  border: none;
   border-radius: 2px;
-  border:1px solid transparent;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+} */
+
+/* input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+} */
+
+.dropdown {
+  margin-left: 160px;
+  width: 300px;
+  height: 30px;
+  border: 1px solid#999;
+  font-size: 15px;
+  color: #1c87c9;
+  background-color:#eee;
+  border-radius:5px;
+  box-shadow:4px 4px #ccc;
+}
+
+
+.signup, .login {
+  width: 80px;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  align-items: center;
   font-size: 14px;
   font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
   font-family: Roboto, sans-serif;
-  margin: 5px;
+  margin-left: 0px;
+  border-bottom: 1px solid rgba(196, 193, 193, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+}
+
+
+.events {
+  margin-left: 500px;
+}
+#get-event-button {
+  background-color: rgb(11, 112, 206); /* Green */
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+}
+
+#get-event-button:hover {
+  background-color: rgb(0, 54, 126);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+*:focus {
+  outline: none;
 }

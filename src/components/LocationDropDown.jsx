@@ -91,15 +91,16 @@ class LocationDropDown extends Component {
     // console.log('this is inside locationdropdown', this.props)
     return (
       <div>
-         <select id="dropdown" name="dropdown-locations">
+         <select className="dropdown" id="dropdown" name="dropdown-locations">
           <option value="services" defaultValue="">Select A Location</option>
           <option key='1' value='Los Angeles'>Los Angeles</option>
           <option key='2' value='San Francisco'>San Francisco</option>
-          <option key='3' value='New York'>New York</option>
+          <option key='3' value='Hong Kong'>Hong Kong</option>
+          <option key='4' value='Seoul'>Seoul</option>
         </select>
         <input id='get-event-button' type="submit" onClick={this.getEvents} value="Search For Local Events" />
-        <button onClick={this.fetchFromAPI}>TEMP Fetch from API</button>
-        <Events 
+        <button id='get-event-button' onClick={this.fetchFromAPI}>TEMP Fetch from API</button>
+        <Events className="events"
           events={this.state.events}
         />
       </div>
