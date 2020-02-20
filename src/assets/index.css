@@ -1,0 +1,58 @@
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+
+  }
+
+.mainContainer {
+  background-color: #fff;
+  background-size: cover;
+  display: grid;
+  position: fixed;
+  grid-template-columns: 15% 40% 45%;
+  grid-template-rows: 9% 20% 35% 35% 1%;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.mainNavBar {
+    position: fixed;
+    z-index: 1;
+    grid-column: 1/4;
+    grid-row: 1;
+}
+
+.buttonContainer {
+  display: grid;
+  grid-template-columns: 10% 23.33% 23.33% 23.33% 20%;
+  grid-template-rows: auto;
+  position: relative;
+  vertical-align: text-top;
+}
+
+@media (min-width:768px){
+  .navbar.fixed-left{
+      bottom:0;
+      width:232px;
+      flex-flow:column nowrap;
+      align-items:flex-start;
+  }
+  .navbar.fixed-left .navbar-collapse{
+      flex-grow:0;
+      flex-direction:column;
+      width:100%
+  }
+  .navbar.fixed-left .navbar-collapse .navbar-nav{
+      flex-direction:column;
+      width:100%
+  }.navbar.fixed-left .navbar-collapse .navbar-nav .nav-item{
+      width:100%
+  }.navbar.fixed-left .navbar-collapse .navbar-nav .nav-item .dropdown-menu{
+      top:0
+  }
+}
