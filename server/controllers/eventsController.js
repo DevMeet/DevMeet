@@ -103,22 +103,23 @@ eventsController.retrieveFromDB = (req, res, next) => {
 };
 
 eventsController.createEvent = (req, res, next) => {
-  console.log('in creator', req);
+  // destructuring req.body for user input of events
   const { date, name, description, eventId, url, venue, city } = req.body;
+  // prefix any user created event with 1000000 to differentiate in queries
   const cryptoId = `1000000${eventId.toString()}`;
+  // slicing description to meet field level character length constraints
   const descShort = description
     .split('')
     .slice(0, 238)
     .join('');
-  console.log(cryptoId);
+  // creating values array for db insertion
   const newEvent = [date, name, descShort, cryptoId, url, venue, city];
-
+  // query string with parameters for newEvent values
   const dbEntry = `
   INSERT INTO events (date, name, description, eventid, url, venue, city)
   values($1, $2, $3, $4, $5, $6, $7)
   `;
 
-  console.log('newEvent: ', newEvent, 'dbEntry: ', dbEntry);
   db.query(dbEntry, newEvent)
     .then(response => {
       res.locals.response = response;
