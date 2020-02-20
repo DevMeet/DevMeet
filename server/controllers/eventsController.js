@@ -93,14 +93,14 @@ eventsController.retrieveFromDB = async (req, res, next) => {
       `
   await db.query(text)
       .then(response => {
-        const eventsObj = [];
+        const eventsArr = [];
         response.rows.forEach(event => {
           if (event.city === req.body.selectedLocation) {
-            eventsObj.push(event)
+            eventsArr.push(event)
           }
         });
-        res.locals.events = eventsObj;
-        console.log('this is res.events:', res.locals.events)
+        res.locals.events = eventsArr;
+        // console.log('this is res.events:', res.locals.events)
       })
       .catch(err => console.log(err))
       return next();

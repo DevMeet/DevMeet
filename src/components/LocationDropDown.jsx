@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-const fetch = require("node-fetch");
+import Events from './Events.jsx';
+
 
 class LocationDropDown extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      events: []
+    };
     this.getEvents = this.getEvents.bind(this);
-    this.fetchFromAPI = this.fetchFromAPI.bind(this);
+    // this.fetchFromAPI = this.fetchFromAPI.bind(this);
   };
 
   getEvents() {
@@ -18,7 +22,14 @@ class LocationDropDown extends Component {
       body: JSON.stringify({ selectedLocation })
     }).then(response => response.json())
     .then(data => {
-      this.setState({ events: data.events})
+      console.log('data: ', data)
+      this.setState({
+        ...this.state
+      }, () => {
+        this.setState({
+          events: data.events
+        })
+      })
     })
     .catch(error => console.log(error));
 
@@ -77,27 +88,20 @@ class LocationDropDown extends Component {
   }
 
   render() {
-    console.log('this is inside locationdropdown', this.props)
+    // console.log('this is inside locationdropdown', this.props)
     return (
       <div>
-        {/* <select id="dropdown">
-          <option value="1" selected="selected" disabled>Select Region</option>
-          <option value="2">LA</option>
-          <option value="3">SF</option>
-          <option value="4">NY</option>
-        </select> */}
-          {/* <form class="get-events"> */}
-          {/* <form class="get-events" action="/events" method="GET"> */}
          <select id="dropdown" name="dropdown-locations">
           <option value="services" defaultValue="">Select A Location</option>
           <option key='1' value='Los Angeles'>Los Angeles</option>
           <option key='2' value='San Francisco'>San Francisco</option>
           <option key='3' value='New York'>New York</option>
         </select>
-        {/* <input id='get-event-button' type="submit" onChange={this.getEvents} value="Search For Local Events" /> */}
         <input id='get-event-button' type="submit" onClick={this.getEvents} value="Search For Local Events" />
         <button onClick={this.fetchFromAPI}>TEMP Fetch from API</button>
-        {/* </form> */}
+        <Events 
+          events={this.state.events}
+        />
       </div>
     )
   }
