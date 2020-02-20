@@ -14,7 +14,8 @@ class App extends Component {
       loggedIn: false,
       name: '',
       email: '',
-      selectedLocation: ''
+      selectedLocation: '',
+      events: [],
     };
     this.loginHandleClick = this.loginHandleClick.bind(this);
   }
@@ -46,6 +47,7 @@ class App extends Component {
         <div className="fullscreen">
           <MainPage
             selectedLocation={this.state.selectedLocation}
+            events={this.state.events}
           />
           <SidebarContainer
             events={this.state.events}

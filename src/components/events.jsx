@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SingleEvent from './SingleEvent.jsx';
 
 class Events extends Component {
   constructor(props) {
@@ -6,6 +7,7 @@ class Events extends Component {
   };
 
   render() {
+    console.log('in events this.props.events: ', this.props.events)
     const eventsArr = this.props.events.map(event => (
       <SingleEvent
       date={event.date}
