@@ -21,11 +21,11 @@
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 50px;
-  color: #ffffff;
   display: block;
   font-family: Courier;
   margin-left: -10px;
   text-align: center;
+  background-image: url('./logo.png')
 }
 
 .map{
@@ -64,10 +64,11 @@
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
-  padding: px 8px;
+  padding: 8px;
 }
 
 .google {
+<<<<<<< HEAD
   margin-left: 15px;
   padding: 15px 10px;
 }
@@ -75,4 +76,26 @@
 #dropdown-locations {
   left: 400px;
   position: absolute;
+=======
+  margin-left: 20px;
+  padding: 15px 10px 6px 16px;
+}
+
+.dropdown {
+  margin-left: 250px;
+}
+
+.signup {
+  background-color: rbg(255, 255, 255);
+  display: inline-flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.54);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+  padding: 0px;
+  border-radius: 2px;
+  border:1px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Roboto, sans-serif;
+>>>>>>> 8af617db0e89169b86dd6c6f501c6fc135ffa024
 }
