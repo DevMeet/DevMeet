@@ -10,6 +10,7 @@ import TrendingEvents from '../components/TrendingEvents'
 class MainPage extends Component {
   constructor (props) {
     super(props);
+
   };
 
   render () {
