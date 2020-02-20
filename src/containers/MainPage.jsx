@@ -8,13 +8,17 @@ class MainPage extends Component {
     super(props);
   };
 
+
   render () {
-    // console.log('this is inside mainpage:', this.props.events)
+    console.log('this is inside mainpage:', this.props.events)
     return (
         <div className="fullscreen">
             <div className="maincontainer">
                 <div>
-                    <SideBar/>
+                    <SideBar
+                      loggedIn={this.props.loggedIn}
+                      loginHandleClick={this.props.loginHandleClick}
+                    />
                 </div>
                 <div className="googlemaps">
                     <MapDisplay/>

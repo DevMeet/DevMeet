@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { HashRouter, Route, Link, Switch } from 'react-router-dom'
+import { GoogleLogin } from 'react-google-login';
 
 //component imports
 import MainPage from "./containers/MainPage.jsx"
@@ -7,36 +8,43 @@ import MainPage from "./containers/MainPage.jsx"
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      loggedIn: false,
+      name: '',
+      email: ''
+    };
+    this.loginHandleClick = this.loginHandleClick.bind(this);
   }
 
-  // componentDidMount() {
-  //   fetch('/events')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     this.setState({
-  //       events: data
-  //     })
-  //   })
-  //   .catch(err => { console.log(err); })
-  // }
+  loginHandleClick() {
+    this.setState({ loggedIn: true })
+  }
+
+  componentDidMount() {
+    fetch('/events')
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+        events: data
+      })
+    })
+    .catch(err => { console.log(err); })
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.events.name);
+  }
+
 
   render() {
-    // console.log('inside app.jsx:', this.state.events)
-    // fetch('/events')
-    // .then(res => res.json())
-    // .then(data => {
-    //   this.setState({
-    //     events: data
-    //   })
-    // })
-    // .catch(err => { console.log(err); })
-    // console.log(this.state.events.name)
+
     return (
       <HashRouter>
         <div className="fullscreen">
           <MainPage
             events={this.state.events}
+            loggedIn={this.state.loggedIn}
+            loginHandleClick={this.loginHandleClick}
           />
         </div>
       </HashRouter>

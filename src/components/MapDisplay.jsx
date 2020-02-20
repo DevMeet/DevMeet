@@ -3,15 +3,18 @@
 import React, { Component } from 'react';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
 class MapDisplay extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     function Map() {
       return (
-        <GoogleMap defaultZoom={8} defaultCenter={{ lat: 34.052235, lng: -118.243683 }}></GoogleMap>
+        <GoogleMap defaultZoom={8} defaultCenter={{ lat: 34.052235, lng: -118.243683 }}>
+          <Marker position={{ lat: 34.052235, lng: -118.243683 }} />
+          <Marker position={{ lat: 34.052235, lng: -119.243683 }} />
+        </GoogleMap>
       );
     }
 
