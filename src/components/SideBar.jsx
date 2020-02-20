@@ -31,6 +31,7 @@ class SideBar extends Component {
     }
     return (
       <div className='mainNavBar'>
+
         <ButtonGroup vertical className='buttonContainer'>
           {loggedIn}
           <Link to="/myevents">
