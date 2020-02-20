@@ -11,15 +11,16 @@ class LocationDropDown extends Component {
   getEvents() {
     let e = document.getElementById("dropdown");
     let selectedLocation = e.options[e.selectedIndex].text;
-    console.log('inside getvents:', selectedLocation)
+    // console.log('inside getvents:', selectedLocation)
     fetch(`/events/retrieve`, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ selectedLocation })
-    }).then(function(response) {
-      // console.log(response)
+    }).then(response => response.json())
+    .then(data => {
+      this.setState({ events: data.events})
     })
-    
+    .catch(error => console.log(error));
 
     // let e = document.getElementById("dropdown");
     // let selectedLocation = e.options[e.selectedIndex].text;
@@ -43,6 +44,7 @@ class LocationDropDown extends Component {
   }
 
   componentDidUpdate() {
+    // console.log(this.props.events)
     // let e = document.getElementById("dropdown");
     // let selectedLocation = e.options[e.selectedIndex].text;
     // fetch(`/events/retrieve`, {
