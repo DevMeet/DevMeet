@@ -6,6 +6,7 @@ import LocationDropDown from '../components/LocationDropDown.jsx';
 import Profile from '../components/Profile'
 import MyEvents from '../components/MyEvents'
 import TrendingEvents from '../components/TrendingEvents'
+import UpcomingEvents from '../components/UpcomingEvents'
 
 class MainPage extends Component {
   constructor (props) {
@@ -16,28 +17,30 @@ class MainPage extends Component {
   render () {
     return (
       <Container>
-          <div className="fullscreen">
+        <div className="fullscreen">
           <div className="maincontainer">
-              <div className="googlemaps">
-                  <MapDisplay/>
-                  <LocationDropDown/>
-                  <Switch>
-                    <Route path="/profile">
-                      <Profile />
-                    </Route>
-                    <Route path="/events">
-                      <MyEvents />
-                    </Route>
-                    <Route path="/trending">
-                      <TrendingEvents />
-                    </Route>
-                    <Route path="/upcoming">
-                      <UpcomingEvents />
-                    </Route>
-                  </Switch>
-              </div>
+            <div className="googlemaps">
+              <MapDisplay/>
+              <LocationDropDown/>
+            </div>
+                <Router>
+                <Switch>
+                  <Route path="/profile">
+                    <Profile />
+                  </Route>
+                  <Route path="/events">
+                    <MyEvents />
+                  </Route>
+                  <Route path="/trending">
+                    <TrendingEvents />
+                  </Route>
+                  <Route path="/upcoming">
+                    <UpcomingEvents />
+                  </Route>
+                </Switch>
+              </Router>
           </div>
-      </div>
+        </div>
       </Container>
     )
   }

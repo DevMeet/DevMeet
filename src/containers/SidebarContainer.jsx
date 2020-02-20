@@ -42,7 +42,6 @@ class SidebarContainer extends Component {
       document.querySelector('#nameInput').setAttribute("style", "border: 2px solid $yellowgrey !important;");
     }
   }
-
   checkPassword() {
     const password1 = document.getElementById('pw1').value; 
     const password2 = document.getElementById('pw2').value; 
@@ -60,15 +59,14 @@ class SidebarContainer extends Component {
       alert("Password matched. Welcome to DevMeet!") 
       return true; 
     } 
-  } 
-
+  }   
   render () {
     return (
       <Router>
       <div class="sidenav">
         <div className="title">
-          <div>DeV</div>
-          <div>MeeT</div>
+          {/* <div>DeV</div>
+          <div>MeeT</div> */}
           <img src={require('../assets/logo.png')}/>
         </div>
          <Link to="/profile">Profile</Link>
@@ -85,7 +83,7 @@ class SidebarContainer extends Component {
           />
         </div>
         <Button className="signup" onClick={this.handleOpenModal}>Signup</Button>
-        <ReactModal
+      <ReactModal
           isOpen={this.state.showModal}
           // className="signup"
           // overlayClassName="signupModalOverlay"
@@ -113,7 +111,7 @@ class SidebarContainer extends Component {
             <button onClick={this.handleCloseModal}>Cancel</button>
           </div>
         </ReactModal>
-         <Switch>
+         {/* <Switch>
          <Route path="/profile">
           <Profile />
          </Route>
@@ -126,8 +124,8 @@ class SidebarContainer extends Component {
         <Route path="/upcoming">
           <UpcomingEvents />
         </Route>
-      </Switch>
-      </div>
+      </Switch> */}
+      </div>        
       </Router>
     )
   }
