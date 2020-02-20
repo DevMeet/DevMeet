@@ -8,54 +8,77 @@ class LocationDropDown extends Component {
   };
 
   getEvents() {
-    let e = document.getElementById("dropdown-locations");
+    let e = document.getElementById("dropdown");
     let selectedLocation = e.options[e.selectedIndex].text;
-    console.log(selectedLocation)
-    this.setState({
-      ...this.state
-     }, () => { 
-      console.log('this.state: ', this.state)
-      this.setState({
-       selectedLocation: selectedLocation
-     })})
-
-    fetch(`/events/retrieve/${this.state.selectedLocation}`)
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        events: data
-      })
-    })
-    .catch(err => { console.log(err); })
-  }
-
-  componentDidUpdate() {
-    fetch(`/events/retrieve/${this.state.selectedLocation}`, {
+    console.log('inside getvents:', selectedLocation)
+    fetch(`/events/retrieve`, {
       method: 'POST',
-      body: JSON.stringify(this.state.selectedLocation)
+      body: JSON.stringify({text:'SF'})
     }).then(function(response) {
       return response.json();
     }).then(function(data) {
       console.log(data)
     })
+    
+
+    // let e = document.getElementById("dropdown");
+    // let selectedLocation = e.options[e.selectedIndex].text;
+    // console.log(selectedLocation)
+    // this.setState({
+    //   ...this.state
+    //  }, () => { 
+    //   console.log('this.state: ', this.state)
+    //   this.setState({
+    //    selectedLocation: selectedLocation
+    //  })})
+
+    // fetch(`/events/retrieve/${this.state.selectedLocation}`)
+    // .then(res => res.json())
+    // .then(data => {
+    //   this.setState({
+    //     events: data
+    //   })
+    // })
+    // .catch(err => { console.log(err); })
+  }
+
+  componentDidUpdate() {
+    // let e = document.getElementById("dropdown");
+    // let selectedLocation = e.options[e.selectedIndex].text;
+    // fetch(`/events/retrieve`, {
+    //   method: 'POST',
+    //   body: JSON.stringify(selectedLocation)
+    // }).then(function(response) {
+    //   return response.json();
+    // }).then(function(data) {
+    //   console.log(data)
+    // })
   }
 
   fetchFromAPI() {
-    fetch('/events')
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        events: data
-      })
-    })
-    .catch(err => { console.log(err); })
+    // fetch('/events')
+    // .then(res => res.json())
+    // .then(data => {
+    //   let cityEvents = [];
+    //   console.log('inside fetchfromapi', data);
+    //   data.forEach((events) => {
+    //     if (events.city === this.state.selectedLocation) {
+    //       cityEvents.push(events);
+    //     }
+    //   });
+    //   console.log(cityEvents);
+    //   this.setState({
+    //     events: data
+    //   })
+    // })
+    // .catch(err => { console.log(err); })
   }
 
   render() {
     console.log('this is inside locationdropdown', this.props)
     return (
       <div>
-        <select id="dropdown" onChange={() => this.getEvents()}>
+        <select id="dropdown">
           <option value="1" selected="selected" disabled>Select Region</option>
           <option value="2">LA</option>
           <option value="3">SF</option>

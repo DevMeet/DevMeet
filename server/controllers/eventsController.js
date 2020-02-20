@@ -87,17 +87,18 @@ eventsController.addEvent = (req, res, next) => {
 }
 
 eventsController.retrieveFromDB = (req, res, next) => {
-  
-  const text = `
-          SELECT date, name, description, url, venue, city
-          FROM events
-          WHERE city=$1
-      `
-  const values = [city];
-  db.query(text, values)
-      .then(response => console.log(response))
-      .catch(err => console.log(err))
+  console.log(req.body);
   next();
+  // const text = `
+  //         SELECT date, name, description, url, venue, city
+  //         FROM events
+  //         WHERE city=$1
+  //     `
+  // const values = [city];
+  // db.query(text, values)
+  //     .then(response => console.log(response))
+  //     .catch(err => console.log(err))
+  // next();
 }
 
 eventsController.filterEvents = (req, res, next) => {

@@ -68,21 +68,15 @@
 }
 
 .google {
-<<<<<<< HEAD
-  margin-left: 15px;
-  padding: 15px 10px;
-}
-
-#dropdown-locations {
-  left: 400px;
-  position: absolute;
-=======
   margin-left: 20px;
   padding: 15px 10px 6px 16px;
 }
 
-.dropdown {
+#dropdown {
   margin-left: 250px;
+  left: 400px;
+  top: 200px;
+
 }
 
 .signup {
@@ -97,5 +91,4 @@
   font-size: 14px;
   font-weight: 500;
   font-family: Roboto, sans-serif;
->>>>>>> 8af617db0e89169b86dd6c6f501c6fc135ffa024
 }
