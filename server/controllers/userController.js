@@ -5,12 +5,12 @@ const fetch = require('node-fetch');
 const userController = {};
 
 userController.encrypt = (req, res, next) => {
-  console.log('current pos: userController.encrypt');
   const saltRounds = 10;
-  const hashed = bcrypt.hashSync(req.body.password, saltRounds);
-  // storing hashed pw at req.body.password
-  req.body.password = hashed;
-  // next piece of middleware is createUser
+  console.log('hash next');
+  // storing hashed pw
+  const hashed = bcrypt.hashSync(req.body.password[0], saltRounds);
+  console.log('hashed!', hashed);
+  res.locals.newPassword = hashed;
   return next();
   // }
 };
@@ -32,11 +32,13 @@ userController.storeLocation = (req, res, next) => {
 // stores user info when a new user signs up
 userController.createUser = (req, res, next) => {
   const { email, username, password, first_name, last_name, role, city_name } = req.body;
+  const { newPassword } = res.locals;
+
   const text = `
           INSERT INTO users (email, username, password, first_name, last_name, role, city_name)
           values($1, $2, $3, $4, $5, $6, $7)
       `;
-  const values = [email, username, password, first_name, last_name, role, city_name];
+  const values = [email, username, newPassword, first_name, last_name, role, city_name];
   db.query(text, values)
     .then(response => console.log(response))
     .catch(err => console.log(err));

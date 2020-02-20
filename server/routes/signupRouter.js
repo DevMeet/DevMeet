@@ -9,6 +9,7 @@ signup.post(
   userController.encrypt,
   userController.createUser,
   (req, res) => {
+    console.log(res.locals.authenticated);
     // res.status(200).json(res.locals.user._id)
     res.status(200).redirect('/');
   }
