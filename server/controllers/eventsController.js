@@ -86,12 +86,12 @@ eventsController.addEvent = (req, res, next) => {
   next();
 }
 
-eventsController.retrieveFromDB = (req, res, next) => {
+eventsController.retrieveFromDB = async (req, res, next) => {
   const text = `
           SELECT * 
           FROM events
       `
-  db.query(text)
+  await db.query(text)
       .then(response => {
         const eventsObj = [];
         response.rows.forEach(event => {
@@ -99,10 +99,11 @@ eventsController.retrieveFromDB = (req, res, next) => {
             eventsObj.push(event)
           }
         });
-        res.locals.events = eventsObj
+        res.locals.events = eventsObj;
+        console.log('this is res.events:', res.locals.events)
       })
       .catch(err => console.log(err))
-  next();
+      return next();
 }
 
 // eventsController.filterEvents = (req, res, next) => {
