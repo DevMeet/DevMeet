@@ -19,26 +19,12 @@ class MainPage extends Component {
       <Container>
         <div className="fullscreen">
           <div className="maincontainer">
-            <div className="googlemaps">
-              <MapDisplay/>
-              <LocationDropDown/>
-            </div>
-                <Router>
-                <Switch>
-                  <Route path="/profile">
-                    <Profile />
-                  </Route>
-                  <Route path="/events">
-                    <MyEvents />
-                  </Route>
-                  <Route path="/trending">
-                    <TrendingEvents />
-                  </Route>
-                  <Route path="/upcoming">
-                    <UpcomingEvents />
-                  </Route>
-                </Switch>
-              </Router>
+              <div className="googlemaps">
+                  <MapDisplay/>
+                  <LocationDropDown
+                    selectedLocation={this.props.selectedLocation}
+                  />
+              </div>
           </div>
         </div>
       </Container>

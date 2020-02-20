@@ -33,6 +33,7 @@ userController.createUser = (req, res, next) => {
 
 // login verification
 userController.verifyUser = (req, res, next) => {
+  console.log('req.body: ', req.body)
   const { username, password } = req.body;
   const text = `
           SELECT username
@@ -42,7 +43,7 @@ userController.verifyUser = (req, res, next) => {
   const values = [username, password];
   db.query(text, values)
       .then(response => {
-        console.log('response: ', response)
+        // console.log('response: ', response)
               if (response.rows[0]) {
                   console.log('User ', response.rows[0].username, ' has been verified');
                   next();

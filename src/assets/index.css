@@ -41,7 +41,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(49, 49, 49);
+  background-color: rgb(241, 241, 241);
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -49,17 +49,39 @@
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 20px;
-  color: #ffffff;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
   display: block;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   margin-left: 0px;
-  border-bottom: 1px solid rgba(196, 193, 193, 0.3)
+  border-bottom: 1px solid rgba(196, 193, 193, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
 }
 
 .sidenav a:hover {
   color: #7bff00;
 }
+
+/* .sidenav a:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #ffee10;
+  transition: .5s;
+  transform: scale(.9);
+  z-index: -1;
+}
+.sidenav a:hover:before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffee10
+} */
+
 
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
@@ -68,24 +90,33 @@
 }
 
 .google {
-  margin-left: 20px;
+  margin-left: 0px;
   padding: 15px 10px 6px 16px;
 }
 
 .dropdown {
-  margin-left: 250px;
+  margin-left: 160px;
+  width: 300px;
+  height: 30px;
+  border: 1px solid#999;
+  font-size: 15px;
+  color: #1c87c9;
+  background-color:#eee;
+  border-radius:5px;
+  box-shadow:4px 4px #ccc;
 }
 
-.signup {
-  background-color: rbg(255, 255, 255);
-  display: inline-flex;
+
+.signup, .login {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
   align-items: center;
-  color: rgba(0, 0, 0, 0.54);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
-  padding: 0px;
-  border-radius: 2px;
-  border:1px solid transparent;
   font-size: 14px;
   font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+  display: block;
   font-family: Roboto, sans-serif;
+  margin-left: 0px;
+  border-bottom: 1px solid rgba(196, 193, 193, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
 }
