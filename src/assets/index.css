@@ -76,7 +76,7 @@
   margin-left: 250px;
 }
 
-.signup {
+.signup, .login {
   background-color: rbg(255, 255, 255);
   display: inline-flex;
   align-items: center;
@@ -88,4 +88,5 @@
   font-size: 14px;
   font-weight: 500;
   font-family: Roboto, sans-serif;
+  margin: 5px;
 }

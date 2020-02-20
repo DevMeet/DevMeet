@@ -6,19 +6,21 @@ import Profile from '../components/Profile'
 import MyEvents from '../components/MyEvents'
 import TrendingEvents from '../components/TrendingEvents'
 import UpcomingEvents from '../components/UpcomingEvents'
+import Login from '../components/Login';
 import GoogleAuth from '../components/GoogleAuth'
-
 
 class SidebarContainer extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      showModal: false,
+      showSignupModal: false,
+      showLoginModal: false,
     }
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleOpenSignup = this.handleOpenSignup.bind(this);
+    this.handleOpenLogin = this.handleOpenLogin.bind(this);
+    this.handleCloseSignup = this.handleCloseSignup.bind(this);
+    this.handleCloseLogin = this.handleCloseLogin.bind(this);
     this.submitForm = this.submitForm.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
   };
 
   submitForm() {
@@ -26,21 +28,20 @@ class SidebarContainer extends Component {
     console.log('inputName: ', inputName)
   }
 
-  handleOpenModal() {
-    this.setState({ ...this.state, showModal: true });
+  handleOpenSignup() {
+    this.setState({ ...this.state, showSignupModal: true });
   }
 
-  handleCloseModal() {
-    this.setState({ ...this.state, showModal: false });
+  handleOpenLogin() {
+    this.setState({ ...this.state, showLoginModal: true });
   }
 
-  handleKeyPress(event) {
-    const warning = document.querySelector('#signUpError');
-    if (event.key === 'Enter') this.submitForm();
-    else if (warning.style.display === 'block') {
-      warning.setAttribute("style", "display: none !important");
-      document.querySelector('#nameInput').setAttribute("style", "border: 2px solid $yellowgrey !important;");
-    }
+  handleCloseSignup() {
+    this.setState({ ...this.state, showSignupModal: false });
+  }
+
+  handleCloseLogin() {
+    this.setState({ ...this.state, showLoginModal: false });
   }
 
   checkPassword() {
@@ -79,23 +80,17 @@ class SidebarContainer extends Component {
           loggedIn={this.props.loggedIn}
           loginHandleClick={this.props.loginHandleClick}
         />
-        <div>
+        {/* <div>
           <UpcomingEvents
             events={this.props.events}
           />
-        </div>
-        <Button className="signup" onClick={this.handleOpenModal}>Signup</Button>
+        </div> */}
+        <Button className="signup" onClick={this.handleOpenSignup}>Signup</Button>
+        <Button className="login" onClick={this.handleOpenLogin}>Login</Button>
         <ReactModal
-          isOpen={this.state.showModal}
-          // className="signup"
-          // overlayClassName="signupModalOverlay"
-          // contentLabel="Sign Up With Email"
-          // onRequestClose={this.handleCloseModal}
-          // shouldCloseOnOverlayClick={true}
-          // aria={{labelledby: "heading"}}
+          isOpen={this.state.showSignupModal}
         >
           <h1 id="heading">Sign Up With Email</h1>
-          {/* <input type='text' id="nameInput" onKeyDown={(e) => this.handleKeyPress(e)} autoFocus /> */}
           <form action='/signup' method="POST">
             <input type="text" name='email' placeholder='Email'/><br></br>
             <input type="text" name='username' placeholder='Username'/><br></br>
@@ -107,10 +102,21 @@ class SidebarContainer extends Component {
             <input type="text" name='city_name' placeholder='City Name'/><br></br>
             <input type="submit" onClick={this.checkPassword} value="Sign Up" />
           </form>
-          <p id="signupError" style={{ display: 'none' }}>Please enter all fields!</p>
           <div>
-            {/* <button onClick={this.submitForm}>Submit</button> */}
-            <button onClick={this.handleCloseModal}>Cancel</button>
+            <button onClick={this.handleCloseSignup}>Cancel</button>
+          </div>
+        </ReactModal>
+        <ReactModal
+          isOpen={this.state.showLoginModal}
+        >
+          <h1 id="heading">Please Log In</h1>
+          <form action='/signup' method="POST">
+            <input type="text" name='username' placeholder='Username'/><br></br>
+            <input type="password" name='password' placeholder='Password'/><br></br>
+            <input type="submit" onClick={this.authenticate} value="Login" />
+          </form>
+          <div>
+            <button onClick={this.handleCloseLogin}>Cancel</button>
           </div>
         </ReactModal>
          <Switch>
@@ -125,6 +131,9 @@ class SidebarContainer extends Component {
         </Route>
         <Route path="/upcoming">
           <UpcomingEvents />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
       </Switch>
       </div>
