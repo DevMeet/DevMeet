@@ -8,20 +8,8 @@ import LocationDropDown from '../components/LocationDropDown.jsx';
 class MainPage extends Component {
   constructor (props) {
     super(props);
-  
-  this.fetchFromAPI = this.fetchFromAPI.bind(this);
-  };
 
-  fetchFromAPI() {
-    fetch('/events')
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        events: data
-      })
-    })
-    .catch(err => { console.log(err); })
-  }
+  };
 
   render () {
     return (
@@ -31,7 +19,6 @@ class MainPage extends Component {
               <div className="googlemaps">
                   <MapDisplay/>
                   <LocationDropDown/>
-                  <button onClick={this.fetchFromAPI}>Fetch from API</button>
               </div>
           </div>
       </div>
