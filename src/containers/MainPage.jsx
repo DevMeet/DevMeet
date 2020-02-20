@@ -23,6 +23,7 @@ class MainPage extends Component {
                   <MapDisplay/>
                   <LocationDropDown
                     selectedLocation={this.props.selectedLocation}
+                    events={this.props.events}
                   />
               </div>
           </div>

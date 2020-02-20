@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+const moment = require('moment');
 
 class SingleEvent extends Component {
   constructor(props) {
@@ -6,9 +7,10 @@ class SingleEvent extends Component {
   };
 
   render() {
-    console.log('this.props.event in singleEvent: ', this.props.event )
+    
     return (
-      <div className="upcomingevents">
+      <div>
+        {this.props.name}
       </div>
     )
   }

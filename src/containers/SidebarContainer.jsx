@@ -74,7 +74,6 @@ class SidebarContainer extends Component {
          <Link to="/events">Events</Link>
          <Link to="/trending">Trending</Link>
          <Link to="/upcoming">Upcoming</Link>
-         <br></br>
         {/* <div>
           <UpcomingEvents
             events={this.props.events}
@@ -82,7 +81,8 @@ class SidebarContainer extends Component {
         </div> */}
         <Button className="signup" onClick={this.handleOpenSignup}>Signup</Button>
         <Button className="login" onClick={this.handleOpenLogin}>Login</Button>
-        <GoogleAuth 
+
+        <GoogleAuth className="google"
           loggedIn={this.props.loggedIn}
           loginHandleClick={this.props.loginHandleClick}
         />

@@ -26,7 +26,8 @@ class Login extends Component {
 
     render() {
       return (
-        <div className="login">
+        <div id="login-box">
+          <div class="left">
           <ReactModal
           isOpen={this.state.showModal}
         >
@@ -34,12 +35,13 @@ class Login extends Component {
           <form action='/login' method="POST">
             <input type="text" name='username' placeholder='Username'/><br></br>
             <input type="password" name='password' placeholder='Password'/><br></br>
-            <input type="submit" onClick={this.authenticate} value="Login" />
+            <input className="loginbtt" type="submit" onClick={this.authenticate} value="Login" />
           </form>
           <div>
-            <button onClick={this.handleCloseModal}>Cancel</button>
+            <button className="loginbtt" onClick={this.handleCloseModal}>Cancel</button>
           </div>
         </ReactModal>
+        </div>
         </div>
       )
     }
