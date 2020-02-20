@@ -58,11 +58,6 @@ class MainPage extends Component {
               loginHandleClick={this.props.loginHandleClick}
             />
           </div>
-          <div>
-            <UpcomingEvents
-              events={this.props.events}
-            />
-          </div>
         </div>
         <ReactModal
           isOpen={this.state.showModal}

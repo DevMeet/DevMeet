@@ -22,15 +22,16 @@ class App extends Component {
     this.setState({ loggedIn: true })
   }
 
+  // Temporarily commented out and added a button in main page so it doesnt fetch every time we refresh
   componentDidMount() {
-    fetch('/events')
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        events: data
-      })
-    })
-    .catch(err => { console.log(err); })
+    // fetch('/events')
+    // .then(res => res.json())
+    // .then(data => {
+    //   this.setState({
+    //     events: data
+    //   })
+    // })
+    // .catch(err => { console.log(err); })
   }
 
   componentDidUpdate() {

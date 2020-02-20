@@ -11,7 +11,6 @@ import TrendingEvents from './TrendingEvents'
 import UpcomingEvents from './UpcomingEvents'
 
 
-
 //Sidebar component that has all the links
 class SideBar extends Component {
   constructor(props) {
@@ -46,7 +45,7 @@ class SideBar extends Component {
           <div>MeeT</div>
         </div>
          <Link to="/profile">Profile</Link>
-         <Link to="/events">Events</Link>
+         <Link to="/events">My Events</Link>
          <Link to="/trending">Trending</Link>
          <Link to="/upcoming">Upcoming</Link>
          <GoogleLogin className="google"
@@ -72,8 +71,6 @@ class SideBar extends Component {
       </Switch>
       </div>
       </Router>
-
-      
     )
   }
 }
