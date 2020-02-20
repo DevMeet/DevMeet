@@ -8,6 +8,12 @@ const PORT = 3000;
 
 const app = express();
 
+//importing routers
+const login = require('./routes/loginRouter.js');
+const signup = require('./routes/signupRouter.js');
+const events = require('./routes/eventsRouter.js');
+
+
 // Parsing JSON req body from client
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,6 +29,15 @@ app.get('/', (req, res) => {
 // app.use('/', (req, res) => {
 //   res.status(200).sendFile(path.resolve(__dirname, '../src/index.html'));
 // });
+
+// respond with signup router
+app.use('/signup', signup);
+
+// respond with login router
+app.use('/login', login);
+
+// respond with events router
+app.use('/events', events);
 
 // catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => res.sendStatus(404));
