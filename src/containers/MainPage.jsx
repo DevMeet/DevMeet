@@ -6,6 +6,7 @@ import LocationDropDown from '../components/LocationDropDown.jsx';
 class MainPage extends Component {
   constructor (props) {
     super(props);
+
   };
 
   render () {

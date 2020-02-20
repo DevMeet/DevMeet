@@ -5,12 +5,10 @@ class MyEvents extends Component {
         super(props)
     };
 
-    //Need data to populate this div! 
-    //Probably going to use a DB query to get information
     render() {
         return (
-            <div className="upcomingevents">
-                Upcoming Events...
+            <div className="">
+                Saved Events...
             </div>
         )
     }
