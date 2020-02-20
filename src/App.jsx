@@ -10,11 +10,34 @@ class App extends Component {
     this.state = {};
   }
 
+  // componentDidMount() {
+  //   fetch('/events')
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     this.setState({
+  //       events: data
+  //     })
+  //   })
+  //   .catch(err => { console.log(err); })
+  // }
+
   render() {
+    // console.log('inside app.jsx:', this.state.events)
+    // fetch('/events')
+    // .then(res => res.json())
+    // .then(data => {
+    //   this.setState({
+    //     events: data
+    //   })
+    // })
+    // .catch(err => { console.log(err); })
+    // console.log(this.state.events.name)
     return (
       <HashRouter>
         <div className="fullscreen">
-          <MainPage/>
+          <MainPage
+            events={this.state.events}
+          />
         </div>
       </HashRouter>
     )
