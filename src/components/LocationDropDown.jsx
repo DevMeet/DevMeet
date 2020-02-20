@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+const fetch = require("node-fetch");
 
 class LocationDropDown extends Component {
   constructor(props) {
@@ -13,11 +14,10 @@ class LocationDropDown extends Component {
     console.log('inside getvents:', selectedLocation)
     fetch(`/events/retrieve`, {
       method: 'POST',
-      body: JSON.stringify({text:'SF'})
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ selectedLocation })
     }).then(function(response) {
-      return response.json();
-    }).then(function(data) {
-      console.log(data)
+      // console.log(response)
     })
     
 
@@ -78,21 +78,21 @@ class LocationDropDown extends Component {
     console.log('this is inside locationdropdown', this.props)
     return (
       <div>
-        <select id="dropdown">
+        {/* <select id="dropdown">
           <option value="1" selected="selected" disabled>Select Region</option>
           <option value="2">LA</option>
           <option value="3">SF</option>
           <option value="4">NY</option>
-        </select>
+        </select> */}
           {/* <form class="get-events"> */}
           {/* <form class="get-events" action="/events" method="GET"> */}
-         {/* <select id="dropdown-locations" name="dropdown-locations">
+         <select id="dropdown" name="dropdown-locations">
           <option value="services" defaultValue="">Select A Location</option>
           <option key='1' value='Los Angeles'>Los Angeles</option>
           <option key='2' value='San Francisco'>San Francisco</option>
           <option key='3' value='New York'>New York</option>
         </select>
-        <input id='get-event-button' type="submit" onChange={this.getEvents} value="Search For Local Events" /> */}
+        {/* <input id='get-event-button' type="submit" onChange={this.getEvents} value="Search For Local Events" /> */}
         <input id='get-event-button' type="submit" onClick={this.getEvents} value="Search For Local Events" />
         <button onClick={this.fetchFromAPI}>TEMP Fetch from API</button>
         {/* </form> */}

@@ -8,7 +8,7 @@ events.get('/', eventsController.getEvents, eventsController.saveDB, (req, res) 
 })
 
 events.post('/retrieve', eventsController.retrieveFromDB, (req, res) => {
-  res.status(200).json('it worked');
+  res.status(200).json(res.locals.events);
 })
 //res.locals.results
 
