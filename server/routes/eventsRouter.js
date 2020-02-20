@@ -8,7 +8,8 @@ events.get('/', eventsController.getEvents, eventsController.saveDB, (req, res) 
 })
 
 events.post('/retrieve', eventsController.retrieveFromDB, (req, res) => {
-  res.status(200).json(res.locals.events);
+  // console.log('in retrieve middlewear: ', req.locals.events)
+  res.status(200).json({events: res.locals.events});
 })
 //res.locals.results
 

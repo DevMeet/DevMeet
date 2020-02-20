@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 
 class MyEvents extends Component {
-    constructor(props) {
-        super(props)
-    };
+  constructor(props) {
+    super(props)
+  };
 
-    render() {
-        return (
-            <div className="">
-                Saved Events...
-            </div>
-        )
-    }
+  render() {
+
+    return (
+      <div>
+
+      </div>
+    )
+  }
 }
 
 export default MyEvents;

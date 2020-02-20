@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-const fetch = require("node-fetch");
+import Events from '../components/Events.jsx';
+
 
 class LocationDropDown extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      events: ['test1', 'test2']
+    };
     this.getEvents = this.getEvents.bind(this);
     this.fetchFromAPI = this.fetchFromAPI.bind(this);
   };
@@ -16,8 +20,10 @@ class LocationDropDown extends Component {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ selectedLocation })
-    }).then(function(response) {
-      // console.log(response)
+    })
+    .then(res => res.json())
+    .then(data => { 
+      console.log('data: ', data)
     })
     
 
@@ -75,7 +81,10 @@ class LocationDropDown extends Component {
   }
 
   render() {
-    console.log('this is inside locationdropdown', this.props)
+    // console.log('this is inside locationdropdown', this.props)
+    <Events 
+      events={this.state.events}
+    />
     return (
       <div>
         {/* <select id="dropdown">

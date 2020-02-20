@@ -6,9 +6,10 @@ class SingleEvent extends Component {
   };
 
   render() {
-    console.log('this.props.event in singleEvent: ', this.props.event )
+    
     return (
-      <div className="upcomingevents">
+      <div>
+        Hello
       </div>
     )
   }

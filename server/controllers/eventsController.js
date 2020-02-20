@@ -93,13 +93,13 @@ eventsController.retrieveFromDB = (req, res, next) => {
       `
   db.query(text)
       .then(response => {
-        const eventsObj = [];
+        const eventsArr = [];
         response.rows.forEach(event => {
           if (event.city === req.body.selectedLocation) {
-            eventsObj.push(event)
+            eventsArr.push(event)
           }
         });
-        res.locals.events = eventsObj
+        res.locals.events = eventsArr;
       })
       .catch(err => console.log(err))
   next();
