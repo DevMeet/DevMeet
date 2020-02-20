@@ -1,11 +1,8 @@
-import React, { Component } from "react";
-import SidebarContainer from './containers/SidebarContainer.jsx';
-import { HashRouter, Route, Link, Switch } from 'react-router-dom'
+import React, { Component } from 'react';
+import { HashRouter, Route, Link, Switch } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
-
-//component imports
-import MainPage from "./containers/MainPage.jsx"
-
+import SidebarContainer from './containers/SidebarContainer.jsx';
+import MainPage from './containers/MainPage.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -19,18 +16,20 @@ class App extends Component {
   }
 
   loginHandleClick() {
-    this.setState({ loggedIn: true })
+    this.setState({ loggedIn: true });
   }
 
   componentDidMount() {
     fetch('/events')
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        events: data
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          events: data
+        });
       })
-    })
-    .catch(err => { console.log(err); })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   componentDidUpdate() {
@@ -38,11 +37,10 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <HashRouter>
         <div className="fullscreen">
-          <MainPage/>
+          <MainPage />
           <SidebarContainer
             events={this.state.events}
             loggedIn={this.state.loggedIn}
@@ -50,7 +48,7 @@ class App extends Component {
           />
         </div>
       </HashRouter>
-    )
+    );
   }
 }
 
