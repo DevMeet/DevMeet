@@ -16,7 +16,9 @@ class MainPage extends Component {
           <div className="maincontainer">
               <div className="googlemaps">
                   <MapDisplay/>
-                  <LocationDropDown/>
+                  <LocationDropDown
+                    selectedLocation={this.props.selectedLocation}
+                  />
               </div>
           </div>
       </div>
