@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
-export class Events extends Component {
+class Events extends Component {
     
 }
+
+export default Events

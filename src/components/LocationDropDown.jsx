@@ -26,7 +26,7 @@ class LocationDropDown extends Component {
 
   render() {
     return (
-      <div>
+      <div className="dropdown">
           {/* <form class="get-events"> */}
           {/* <form class="get-events" action="/events" method="GET"> */}
          <select id="dropdown-locations" name="dropdown-locations">

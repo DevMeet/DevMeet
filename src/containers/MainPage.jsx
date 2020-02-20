@@ -25,7 +25,8 @@ class MainPage extends Component {
 
   render () {
     return (
-      <div className="fullscreen">
+      <Container>
+          <div className="fullscreen">
           <div className="maincontainer">
               <div className="googlemaps">
                   <MapDisplay/>
@@ -34,7 +35,7 @@ class MainPage extends Component {
               </div>
           </div>
       </div>
-
+      </Container>
     )
   }
 }

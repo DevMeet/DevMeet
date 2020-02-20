@@ -10,6 +10,7 @@ import MyEvents from './MyEvents'
 import TrendingEvents from './TrendingEvents'
 import UpcomingEvents from './UpcomingEvents'
 
+var Logo = require('../assets/logo.png')
 
 //Sidebar component that has all the links
 class SideBar extends Component {
@@ -41,8 +42,9 @@ class SideBar extends Component {
       <Router>
       <div class="sidenav">
         <div className="title">
-          <div>DeV</div>
-          <div>MeeT</div>
+          {/* <div>DeV</div>
+          <div>MeeT</div> */}
+          <img src={require('../assets/logo.png')}/>
         </div>
          <Link to="/profile">Profile</Link>
          <Link to="/events">My Events</Link>
@@ -55,6 +57,7 @@ class SideBar extends Component {
           onFailure={responseGoogle}
           cookiePolicy={'single_host_origin'}
         />
+        <Button className="signup">Signup</Button>
          <Switch>
          <Route path="/profile">
           <Profile />
