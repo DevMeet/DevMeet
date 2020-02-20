@@ -16,7 +16,6 @@ class SideBar extends Component {
     }
     return (
       <div className='mainNavBar'>
-        <ButtonGroup vertical className='buttonContainer'>
         <GoogleLogin
     clientId="208196216692-cgh2aeaov7v1uqv9h8g1fluafs1oltf3.apps.googleusercontent.com"
     buttonText="Login"
@@ -24,6 +23,7 @@ class SideBar extends Component {
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
   />
+        <ButtonGroup vertical className='buttonContainer'>
           <Link to="/myevents">
             <Button
             >
