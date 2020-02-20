@@ -8,14 +8,15 @@ eventsController.getEvents = async (req, res, next) => {
   await fetch(url, {
     method: 'GET',
     headers: {
-      'Authorization': 'Bearer CPIOTBKKXSDUDM4MXJBM'
+      'Authorization': 'Bearer CPIOTBKKXSDUDM4MXJBM',
+      // "Content-Type": 'application/json'
     },
   })
       .then(response => response.json())
       .then(data => {
-        console.log('getEvents: ', data)
+        // console.log('data in fetch: ', data)
+        // console.log('data.name: ', data.name.text)
         res.locals.results = data;
-        console.log('res.locals.results: ', res.locals.results)
       })
       .catch(err => console.log(err));
   next();

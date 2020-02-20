@@ -9,6 +9,7 @@ class MainPage extends Component {
   };
 
   render () {
+    // console.log('this is inside mainpage:', this.props.events)
     return (
         <div className="fullscreen">
             <div className="maincontainer">
@@ -19,7 +20,13 @@ class MainPage extends Component {
                     <MapDisplay/>
                 </div>
                 <div>
-                    <UpcomingEvents/>
+                    <UpcomingEvents
+                      events={this.props.events}
+                      // name={this.props.events.name}
+                      // description={this.props.events.description}
+                      // date={this.props.events.date}
+                      // url={this.props.events.props.url}
+                    />
                 </div>
             </div>
         </div>
