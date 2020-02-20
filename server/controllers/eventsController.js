@@ -27,7 +27,7 @@ eventsController.getEvents = async (req, res, next) => {
     })
     .then(resp => resp.json())
     .then(data => {
-      console.log('data from fetch: ', data)
+      // console.log('data from fetch: ', data)
       const newDate = moment(data.date).format('MMMM D, Y')
       eventsArr.push({
         name: data.name.text,
@@ -87,17 +87,30 @@ eventsController.addEvent = (req, res, next) => {
 }
 
 eventsController.retrieveFromDB = (req, res, next) => {
-  
-  const text = `
-          SELECT date, name, description, url, venue, city
-          FROM events
-          WHERE city=$1
-      `
-  const values = [city];
-  db.query(text, values)
-      .then(response => console.log(response))
-      .catch(err => console.log(err))
+  console.log(req.body);
   next();
+  // const text = `
+  //         SELECT date, name, description, url, venue, city
+  //         FROM events
+  //         WHERE city=$1
+  //     `
+  // const values = [city];
+  // db.query(text, values)
+  //     .then(response => console.log(response))
+  //     .catch(err => console.log(err))
+  // next();
+}
+
+eventsController.filterEvents = (req, res, next) => {
+  if(req.body.selectedLocation === 'LA') {
+    res.locals.results.forEach((events) => {
+      let newEvents = [];
+      if (events.city === 'Los Angeles') {
+        newEvents.push(events);
+        res.locals.losangeles = newEvents;
+      }
+    })
+  }
 }
 
 module.exports = eventsController;

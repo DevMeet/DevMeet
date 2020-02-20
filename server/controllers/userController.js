@@ -43,7 +43,7 @@ userController.verifyUser = (req, res, next) => {
   const values = [username, password];
   db.query(text, values)
       .then(response => {
-        console.log('response: ', response)
+        // console.log('response: ', response)
               if (response.rows[0]) {
                   console.log('User ', response.rows[0].username, ' has been verified');
                   next();
