@@ -5,7 +5,6 @@
     bottom: 0;
     right: 0;
     overflow: auto;
-
   }
 
 .mainContainer {
@@ -15,9 +14,24 @@
   position: fixed;
   grid-template-columns: 15% 40% 45%;
   grid-template-rows: 9% 20% 35% 35% 1%;
-
   width: 100vw;
   height: 100vh;
+}
+.title{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 50px;
+  color: #ffffff;
+  display: block;
+  font-family: Courier;
+  margin-left: -10px;
+  text-align: center;
+}
+
+.map{
+  margin-left:160px;
+  width: 80vw;
+  height: 60vh;
 }
 
 .sidenav {
@@ -27,7 +41,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: rgb(49, 49, 49);
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -35,18 +49,25 @@
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  font-size: 20px;
+  color: #ffffff;
   display: block;
-  font: Arial;
+  font-family: sans-serif;
+  margin-left: 0px;
+  border-bottom: 1px solid rgba(196, 193, 193, 0.3)
 }
 
 .sidenav a:hover {
-  color: #db0000;
+  color: #7bff00;
 }
 
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: px 8px;
+}
+
+.google {
+  margin-left: 15px;
+  padding: 15px 10px;
 }

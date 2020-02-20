@@ -9,31 +9,28 @@ class MainPage extends Component {
     super(props);
   };
 
+
   render () {
+    console.log('this is inside mainpage:', this.props.events)
     return (
-      <Container>
-        <Row>
-          <Col>
-            <SideBar />
-          </Col> 
-          <Col>
-            <MapDisplay/>
-          </Col>
-        </Row>
-      </Container>
-        // <div className="fullscreen">
-        //     <div className="maincontainer">
-        //         <div>
-        //             <SideBar/>
-        //         </div>
-        //         <div className="googlemaps">
-        //             <MapDisplay/>
-        //         </div>
-        //         <div>
-        //             <UpcomingEvents/>
-        //         </div>
-        //     </div>
-        // </div>
+        <div className="fullscreen">
+            <div className="maincontainer">
+                <div>
+                    <SideBar
+                      loggedIn={this.props.loggedIn}
+                      loginHandleClick={this.props.loginHandleClick}
+                    />
+                </div>
+                <div className="googlemaps">
+                    <MapDisplay/>
+                </div>
+                <div>
+                    <UpcomingEvents
+                      events={this.props.events}
+                    />
+                </div>
+            </div>
+        </div>
 
     )
   }

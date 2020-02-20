@@ -19,93 +19,61 @@ class SideBar extends Component {
   };
 
   render () {
+    console.log(this.props)
     //onClick={renderProps.onClick} disabled={renderProps.disabled}
     const responseGoogle = (response) => {
-      console.log(response);
+      console.log(response)
+      if (response.Ca) {
+        this.setState({loggedIn: true, name: response.Qt.Ad, email: response.Qt.zu}, console.log(this.props.name))
+      }
+    }
+    let loggedIn;
+    if (this.props.loggedIn === false) {
+      loggedIn = (<GoogleLogin
+                    clientId="208196216692-cgh2aeaov7v1uqv9h8g1fluafs1oltf3.apps.googleusercontent.com"
+                    buttonText="Login"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                    onClick={this.props.loginHandleClick}
+                  />)
     }
     return (
-      <div>
+      <Router>
       <div class="sidenav">
-         <a to="#about">Profile</a>
-         <a to="#services">Events</a>
-         <a to="#clients">Trending</a>
-         <a to="#contact">Upcoming</a>
-         <GoogleLogin id="google"
+        <div className="title">
+          <div>DeV</div>
+          <div>MeeT</div>
+        </div>
+         <Link to="/profile">Profile</Link>
+         <Link to="/events">Events</Link>
+         <Link to="/trending">Trending</Link>
+         <Link to="/upcoming">Upcoming</Link>
+         <GoogleLogin className="google"
           clientId="208196216692-cgh2aeaov7v1uqv9h8g1fluafs1oltf3.apps.googleusercontent.com"
           buttonText="Login"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           cookiePolicy={'single_host_origin'}
         />
+         <Switch>
+         <Route path="/profile">
+          <Profile />
+         </Route>
+         <Route path="/events">
+          <MyEvents />
+         </Route>
+        <Route path="/trending">
+          <TrendingEvents />
+        </Route>
+        <Route path="/upcoming">
+          <UpcomingEvents />
+        </Route>
+      </Switch>
       </div>
-      <div class="main">
-        
-      </div>
-      </div>
-      // <Router>
-      // <Navbar bg="light" expand='lg' className="fixed-left" fixed="top">
-      //   <Navbar.Brand href="#home">DevMeet</Navbar.Brand>
-      //   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      //   <Navbar.Collapse id="responsive-navbar-nav">
-        // <GoogleLogin id="google"
-        //       clientId="208196216692-cgh2aeaov7v1uqv9h8g1fluafs1oltf3.apps.googleusercontent.com"
-        //       buttonText="Login"
-        //       onSuccess={responseGoogle}
-        //       onFailure={responseGoogle}
-        //       cookiePolicy={'single_host_origin'}
-        //       />
-      //       <Nav className="mr-auto">
-      //       <NavItem>
-      //       <Link to="/profile">Profile</Link>
-      //       </NavItem>
-      //       <NavItem>
-      //       <Link to="/events">Events</Link>
-      //       </NavItem>
-      //       <NavItem>
-      //       <Link to="/trending">Trending</Link>
-      //       </NavItem>
-      //       <NavItem>
-      //       <Link to="/upcoming">Upcoming</Link>
-      //       </NavItem>
-      //     </Nav>
-      //   </Navbar.Collapse>
+      </Router>
+
       
-      // <Switch>
-      //    <Route path="/profile">
-      //     <Profile />
-      //    </Route>
-      //    <Route path="/events">
-      //     <MyEvents />
-      //    </Route>
-      //   <Route path="/trending">
-      //     <TrendingEvents />
-      //   </Route>
-      //   <Route path="/upcoming">
-      //     <UpcomingEvents />
-      //   </Route>
-      // </Switch>
-      // </Navbar>
-      // </Router>
-    
-      
-      
-  //     <div className='mainNavBar'>
-  //       <ButtonGroup vertical className='buttonContainer'>
-        
-  //         <Link to="/myevents">
-  //           <Button
-  //           >
-  //             My Events
-  //           </Button>
-  //         </Link>
-  //         <Link to="/trending">
-  //           <Button
-  //           >
-  //             Trending
-  //           </Button>
-  //         </Link>
-  //       </ButtonGroup>
-  //     </div>
     )
   }
 }
