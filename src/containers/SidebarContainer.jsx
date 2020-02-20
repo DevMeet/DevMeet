@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import SideBar from '../components/SideBar.jsx';
-import UpcomingEvents from '../components/UpcomingEvents.jsx';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Button, ButtonToolbar, ButtonGroup, Container, Row, Col } from 'react-bootstrap';
 import ReactModal from 'react-modal';
+import Profile from '../components/Profile'
+import MyEvents from '../components/MyEvents'
+import TrendingEvents from '../components/TrendingEvents'
+import UpcomingEvents from '../components/UpcomingEvents'
+import GoogleAuth from '../components/GoogleAuth'
 
-class MainPage extends Component {
+
+class SidebarContainer extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -18,17 +24,6 @@ class MainPage extends Component {
   submitForm() {
     const inputName = document.querySelector('#nameInput').value;
     console.log('inputName: ', inputName)
-    // if (!!inputName.trim()) {
-    //   collectionsController.collectionNameExists({ name: inputName })
-    //     .catch((err) => console.error("error in checking collection name: ", err))
-    //     .then((found) => {
-    //       if (found) { //if the name already exists
-    //         document.querySelector('#collectionNameInput').setAttribute("style", "border-color: red;");
-    //         document.querySelector('#collectionNameError').setAttribute("style", "display: block");
-    //       }
-    //       else this.saveCollection(inputName)
-    //     })
-    // }
   }
 
   handleOpenModal() {
@@ -50,21 +45,43 @@ class MainPage extends Component {
 
   render () {
     return (
-      <div>
-        <div className="maincontainer">
-          <div>
-            <SideBar
-              loggedIn={this.props.loggedIn}
-              loginHandleClick={this.props.loginHandleClick}
-            />
-          </div>
-          <div>
-            <UpcomingEvents
-              events={this.props.events}
-            />
-          </div>
+      <Router>
+      <div class="sidenav">
+        <div className="title">
+          <div>DeV</div>
+          <div>MeeT</div>
+          <img src={require('../assets/logo.png')}/>
         </div>
-        <ReactModal
+         <Link to="/profile">Profile</Link>
+         <Link to="/events">Events</Link>
+         <Link to="/trending">Trending</Link>
+         <Link to="/upcoming">Upcoming</Link>
+        <GoogleAuth 
+          loggedIn={this.props.loggedIn}
+          loginHandleClick={this.props.loginHandleClick}
+        />
+        <div>
+          <UpcomingEvents
+            events={this.props.events}
+          />
+        </div>
+        <Button className="signup">Signup</Button>
+         <Switch>
+         <Route path="/profile">
+          <Profile />
+         </Route>
+         <Route path="/events">
+          <MyEvents />
+         </Route>
+        <Route path="/trending">
+          <TrendingEvents />
+        </Route>
+        <Route path="/upcoming">
+          <UpcomingEvents />
+        </Route>
+      </Switch>
+      </div>
+      <ReactModal
           isOpen={this.state.showModal}
           // className="signup"
           // overlayClassName="signupModalOverlay"
@@ -91,9 +108,9 @@ class MainPage extends Component {
             <button onClick={this.handleCloseModal}>Cancel</button>
           </div>
         </ReactModal>
-      </div>
+      </Router>
     )
   }
 }
 
-export default MainPage;
+export default SidebarContainer;

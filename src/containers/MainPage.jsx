@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import SideBar from '../components/SideBar.jsx'
 import MapDisplay from '../components/MapDisplay.jsx'
-import UpcomingEvents from '../components/UpcomingEvents.jsx'
 import { Container, Row, Col } from 'react-bootstrap'
 import LocationDropDown from '../components/LocationDropDown.jsx';
 
