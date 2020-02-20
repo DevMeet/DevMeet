@@ -21,12 +21,14 @@ eventsController.getEvents = async (req, res, next) => {
     })
     .then(resp => resp.json())
     .then(data => {
+      console.log('data: ', data)
       const newDate = moment(data.date).format('MMMM D, Y')
       eventsArr.push({
         name: data.name.text,
         date: newDate,
         description: data.description.text,
         url: data.url,
+        venue: data.venue.name,
         latitude: data.venue.latitude,
         longitude: data.venue.longitude,
       });

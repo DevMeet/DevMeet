@@ -7,11 +7,11 @@ class UpcomingEvents extends Component {
 
   render() {
     const eventsCopy = this.props.events;
-    const eventsObj = eventsCopy.map((event, index) => (
-      <SingleEvent
-        event={event}
-      />
-    ))
+    // const eventsObj = eventsCopy.map((event, index) => (
+    //   <SingleEvent
+    //     event={event}
+    //   />
+    // ))
     return (
       <div className="upcomingevents">
 
