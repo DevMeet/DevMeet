@@ -20,39 +20,33 @@
   height: 100vh;
 }
 
-.mainNavBar {
-    position: fixed;
-    z-index: 1;
-    grid-column: 1/4;
-    grid-row: 1;
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
-.buttonContainer {
-  display: grid;
-  grid-template-columns: 10% 23.33% 23.33% 23.33% 20%;
-  grid-template-rows: auto;
-  position: relative;
-  vertical-align: text-top;
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  font: Arial;
 }
 
-@media (min-width:768px){
-  .navbar.fixed-left{
-      bottom:0;
-      width:232px;
-      flex-flow:column nowrap;
-      align-items:flex-start;
-  }
-  .navbar.fixed-left .navbar-collapse{
-      flex-grow:0;
-      flex-direction:column;
-      width:100%
-  }
-  .navbar.fixed-left .navbar-collapse .navbar-nav{
-      flex-direction:column;
-      width:100%
-  }.navbar.fixed-left .navbar-collapse .navbar-nav .nav-item{
-      width:100%
-  }.navbar.fixed-left .navbar-collapse .navbar-nav .nav-item .dropdown-menu{
-      top:0
-  }
+.sidenav a:hover {
+  color: #db0000;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: px 8px;
 }

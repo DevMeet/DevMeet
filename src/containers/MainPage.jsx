@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import SideBar from '../components/SideBar.jsx'
 import MapDisplay from '../components/MapDisplay.jsx'
-import {Container, Row, Col} from 'react-bootstrap';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-
+import UpcomingEvents from '../components/UpcomingEvents.jsx'
+import { Container, Row, Col } from 'react-bootstrap'
 
 class MainPage extends Component {
   constructor (props) {
@@ -14,13 +11,13 @@ class MainPage extends Component {
 
   render () {
     return (
-      <Container fluid>
+      <Container>
         <Row>
           <Col>
-            <SideBar/>
-          </Col>
+            <SideBar />
+          </Col> 
           <Col>
-          <MapDisplay/>
+            <MapDisplay/>
           </Col>
         </Row>
       </Container>
@@ -30,7 +27,10 @@ class MainPage extends Component {
         //             <SideBar/>
         //         </div>
         //         <div className="googlemaps">
-        //             
+        //             <MapDisplay/>
+        //         </div>
+        //         <div>
+        //             <UpcomingEvents/>
         //         </div>
         //     </div>
         // </div>
