@@ -7,7 +7,7 @@ class Events extends Component {
   };
 
   render() {
-    console.log('in events this.props.events: ', this.props.events)
+    // console.log('in events this.props.events: ', this.props.events)
     const eventsArr = this.props.events.map(event => (
       <SingleEvent
       date={event.date}
