@@ -31,7 +31,7 @@ class Login extends Component {
           isOpen={this.state.showModal}
         >
           <h1 id="heading">Please Log In</h1>
-          <form action='/signup' method="POST">
+          <form action='/login' method="POST">
             <input type="text" name='username' placeholder='Username'/><br></br>
             <input type="password" name='password' placeholder='Password'/><br></br>
             <input type="submit" onClick={this.authenticate} value="Login" />

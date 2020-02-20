@@ -95,7 +95,7 @@ class SidebarContainer extends Component {
             <input type="text" name='email' placeholder='Email'/><br></br>
             <input type="text" name='username' placeholder='Username'/><br></br>
             <input id='pw1' type="password" name='password' placeholder='Password'/><br></br>
-            <input id='pw2' type="password" name='password' placeholder='Confirm Password'/><br></br>
+            <input id='pw2' type="password" placeholder='Confirm Password'/><br></br>
             <input type="text" name='first_name' placeholder='First Name' /><br></br>
             <input type="text" name='last_name' placeholder='Last Name' /><br></br>
             <input type="text" name='role' placeholder='Role' /><br></br>
