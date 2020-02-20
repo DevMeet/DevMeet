@@ -19,12 +19,12 @@ userController.storeLocation = (req, res, next) => {
 
 // stores user info when a new user signs up
 userController.createUser = (req, res, next) => {
-  const { email, username, password, first_name, last_name, role } = req.body;
+  const { email, username, password, first_name, last_name, role, city_name } = req.body;
   const text = `
-          INSERT INTO users (email, username, password, first_name, last_name, role)
-          values($1, $2, $3, $4, $5, $6)
+          INSERT INTO users (email, username, password, first_name, last_name, role, city_name)
+          values($1, $2, $3, $4, $5, $6, $7)
       `
-  const values = [email, username, password, first_name, last_name, role];
+  const values = [email, username, password, first_name, last_name, role, city_name];
   db.query(text, values)
       .then(response => console.log(response))
       .catch(err => console.log(err))

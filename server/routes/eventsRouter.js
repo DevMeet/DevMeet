@@ -14,4 +14,8 @@ events.get('/', eventsController.getEvents, eventsController.saveDB, (req, res) 
   res.status(200).json(res.locals.results);
 })
 
+events.get('/retrieve', eventsController.retrieveFromDB, (req, res) => {
+  res.status(200).json(res.locals.results);
+})
+
 module.exports = events;

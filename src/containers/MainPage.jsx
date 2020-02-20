@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MapDisplay from '../components/MapDisplay.jsx';
+import LocationDropDown from '../components/LocationDropDown.jsx';
 
 class MainPage extends Component {
   constructor (props) {
@@ -12,6 +13,7 @@ class MainPage extends Component {
           <div className="maincontainer">
               <div className="googlemaps">
                   <MapDisplay/>
+                  <LocationDropDown/>
               </div>
           </div>
       </div>

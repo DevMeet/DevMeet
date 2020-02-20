@@ -6,8 +6,14 @@ const eventsController = {};
 
 eventsController.getEvents = async (req, res, next) => {
   const urls = ['https://www.eventbriteapi.com/v3/events/93399876545/?expand=venue', 
-  'https://www.eventbriteapi.com/v3/events/93373206775/?expand=venue',
-  'https://www.eventbriteapi.com/v3/events/79875823739/?expand=venue'
+  'https://www.eventbriteapi.com/v3/events/79491393899/?expand=venue', 
+  'https://www.eventbriteapi.com/v3/events/94930643109/?expand=venue', 
+  'https://www.eventbriteapi.com/v3/events/75309640161/?expand=venue',
+  'https://www.eventbriteapi.com/v3/events/80212544881/?expand=venue',
+  'https://www.eventbriteapi.com/v3/events/81264788169/?expand=venue',
+  'https://www.eventbriteapi.com/v3/events/79875823739/?expand=venue',
+  'https://www.eventbriteapi.com/v3/events/94222001543/?expand=venue',
+  'https://www.eventbriteapi.com/v3/events/93557156975/?expand=venue'
   ];
   
   const eventsArr = [];
@@ -21,6 +27,7 @@ eventsController.getEvents = async (req, res, next) => {
     })
     .then(resp => resp.json())
     .then(data => {
+      console.log('data from fetch: ', data)
       const newDate = moment(data.date).format('MMMM D, Y')
       eventsArr.push({
         name: data.name.text,
@@ -28,6 +35,7 @@ eventsController.getEvents = async (req, res, next) => {
         description: data.description.text,
         url: data.url,
         venue: data.venue.name,
+        city: data.venue.city,
         latitude: data.venue.latitude,
         longitude: data.venue.longitude,
       });
@@ -39,18 +47,17 @@ eventsController.getEvents = async (req, res, next) => {
 }
 
 eventsController.saveDB = (req, res, next) => {
-  console.log('savedDB res.locals: ', res.locals)
+  // console.log('savedDB res.locals: ', res.locals)
   res.locals.results.forEach(event => {
-    const { date, name, description, url, venue } = event;
+    const { date, name, description, url, venue, city } = event;
     const text = `
-    INSERT INTO events (date, name, description, url, venue)
-    values($1, $2, $3, $4, $5)
+    INSERT INTO events (date, name, description, url, venue, city)
+    values($1, $2, $3, $4, $5, $6)
 `
-    const values = [date, name, description, url, venue];
+    const values = [date, name, description, url, venue, city];
     db.query(text, values)
         .then(response => console.log(response))
         .catch(err => console.log(err))
-    console.log('made it')
     next();
   })
 }
@@ -68,11 +75,25 @@ eventsController.addEvent = (req, res, next) => {
 
   const { date, description, url, phone_num } = req.body;
   const text2 = `
-          INSERT INTO events (date, description, url, phone_num, location_id)
-          values($1, $2, $3, $4, $5)
+          INSERT INTO events (date, name, description, url, venue, city)
+          values($1, $2, $3, $4, $5, $6)
       `
-  const values2 = [date, description, url, phone_num, location_id];
+  const values2 = [date, name, description, url, venue, city];
   db.query(text2, values2)
+      .then(response => console.log(response))
+      .catch(err => console.log(err))
+  next();
+}
+
+eventsController.retrieveFromDB = (req, res, next) => {
+  
+  const text = `
+          SELECT date, name, description, url, venue, city
+          FROM events
+          WHERE city=$1
+      `
+  const values = [city];
+  db.query(text, values)
       .then(response => console.log(response))
       .catch(err => console.log(err))
   next();
