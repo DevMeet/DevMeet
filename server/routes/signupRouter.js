@@ -1,13 +1,10 @@
 const express = require('express');
 const signup = express.Router();
-const path = require('path');
+const userController = require('../controllers/userController');
+const cookieController = require('../controllers/cookieController');
 
-signup.get('/', (req, res) => {
-    res.status(200).sendFile(path.resolve(__dirname, '../../src/signup.html'));
+signup.post('/', userController.createUser, cookieController.setSSIDCookie, (req, res) => {
+  res.status(200).json(res.locals.user._id)
 });
-
-signup.post('/', userModelController.createUser, (req, res) => {
-    res.status(200).redirect('/');
-})
 
 module.exports = signup;
