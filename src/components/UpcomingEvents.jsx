@@ -5,14 +5,13 @@ class UpcomingEvents extends Component {
     super(props)
   };
 
-
-  //Need data to populate this div!
   render() {
-      console.log('inside upcoming events:', this.props)
-    // console.log('this is inside upcoming events:', this.props.events.url)
-    // const events = this.props.events
-    // console.log(JSON.parse(events))
-    // this.props.events
+    const eventsCopy = this.props.events;
+    // const eventsObj = eventsCopy.map((event, index) => (
+    //   <SingleEvent
+    //     event={event}
+    //   />
+    // ))
     return (
       <div className="upcomingevents">
 

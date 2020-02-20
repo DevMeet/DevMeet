@@ -3,9 +3,8 @@ const fetch = require("node-fetch");
 
 const userController = {};
 
-// when a new user signs up
-userController.createUser = (req, res, next) => {
-  console.log('in createUser req.body: ', req.body)
+// stores location of new user
+userController.storeLocation = (req, res, next) => {
   const { city_name } = req.body;
   const text1 = `
           INSERT INTO location (longitude, latitude, city_name)
@@ -15,23 +14,24 @@ userController.createUser = (req, res, next) => {
   db.query(text1, values1)
       .then(response => console.log(response))
       .catch(err => console.log(err))
+  next();
+}
 
-
-
-      
-  const { email, username, password, first_name, last_name, role } = req.body;
+// stores user info when a new user signs up
+userController.createUser = (req, res, next) => {
+  const { email, username, password, first_name, last_name, role, city_name } = req.body;
   const text = `
-          INSERT INTO users (email, username, password, first_name, last_name, role, location_id)
+          INSERT INTO users (email, username, password, first_name, last_name, role, city_name)
           values($1, $2, $3, $4, $5, $6, $7)
       `
-  const values = [email, username, password, first_name, last_name, role, 1];
+  const values = [email, username, password, first_name, last_name, role, city_name];
   db.query(text, values)
       .then(response => console.log(response))
       .catch(err => console.log(err))
   next();
 }
 
-// Login verification
+// login verification
 userController.verifyUser = (req, res, next) => {
   const { username, password } = req.body;
   const text = `
@@ -42,6 +42,7 @@ userController.verifyUser = (req, res, next) => {
   const values = [username, password];
   db.query(text, values)
       .then(response => {
+        console.log('response: ', response)
               if (response.rows[0]) {
                   console.log('User ', response.rows[0].username, ' has been verified');
                   next();

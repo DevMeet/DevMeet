@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Trending extends Component {
+class TrendingEvents extends Component {
     constructor(props) {
         super(props)
     };
