@@ -87,30 +87,34 @@ eventsController.addEvent = (req, res, next) => {
 }
 
 eventsController.retrieveFromDB = (req, res, next) => {
-  console.log(req.body);
+  const text = `
+          SELECT * 
+          FROM events
+      `
+  db.query(text)
+      .then(response => {
+        const eventsObj = [];
+        response.rows.forEach(event => {
+          if (event.city === req.body.selectedLocation) {
+            eventsObj.push(event)
+          }
+        });
+        res.locals.events = eventsObj
+      })
+      .catch(err => console.log(err))
   next();
-  // const text = `
-  //         SELECT date, name, description, url, venue, city
-  //         FROM events
-  //         WHERE city=$1
-  //     `
-  // const values = [city];
-  // db.query(text, values)
-  //     .then(response => console.log(response))
-  //     .catch(err => console.log(err))
-  // next();
 }
 
-eventsController.filterEvents = (req, res, next) => {
-  if(req.body.selectedLocation === 'LA') {
-    res.locals.results.forEach((events) => {
-      let newEvents = [];
-      if (events.city === 'Los Angeles') {
-        newEvents.push(events);
-        res.locals.losangeles = newEvents;
-      }
-    })
-  }
-}
+// eventsController.filterEvents = (req, res, next) => {
+//   if(req.body.selectedLocation === 'LA') {
+//     res.locals.results.forEach((events) => {
+//       let newEvents = [];
+//       if (events.city === 'Los Angeles') {
+//         newEvents.push(events);
+//         res.locals.losangeles = newEvents;
+//       }
+//     })
+//   }
+// }
 
 module.exports = eventsController;
