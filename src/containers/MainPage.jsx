@@ -9,7 +9,6 @@ class MainPage extends Component {
   };
 
   render () {
-    // console.log('this is inside mainpage:', this.props.events)
     return (
         <div className="fullscreen">
             <div className="maincontainer">
@@ -22,10 +21,12 @@ class MainPage extends Component {
                 <div>
                     <UpcomingEvents
                       events={this.props.events}
-                      // name={this.props.events.name}
-                      // description={this.props.events.description}
-                      // date={this.props.events.date}
-                      // url={this.props.events.props.url}
+                      // name={this.props.name}
+                      // date={this.props.date}
+                      // description={this.props.description}
+                      // url={this.props.url}
+                      // longitude={this.props.longitude}
+                      // latitude={this.props.latitude}
                     />
                 </div>
             </div>

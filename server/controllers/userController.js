@@ -15,9 +15,6 @@ userController.createUser = (req, res, next) => {
   db.query(text1, values1)
       .then(response => console.log(response))
       .catch(err => console.log(err))
-
-
-
       
   const { email, username, password, first_name, last_name, role } = req.body;
   const text = `
