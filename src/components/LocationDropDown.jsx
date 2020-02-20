@@ -4,6 +4,7 @@ class LocationDropDown extends Component {
   constructor(props) {
     super(props)
     this.getEvents = this.getEvents.bind(this);
+    this.fetchFromAPI = this.fetchFromAPI.bind(this);
   };
 
   getEvents() {
@@ -24,9 +25,20 @@ class LocationDropDown extends Component {
     // .catch(err => { console.log(err); })
   }
 
+  fetchFromAPI() {
+    fetch('/events')
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+        events: data
+      })
+    })
+    .catch(err => { console.log(err); })
+  }
+
   render() {
     return (
-      <div>
+      <div className="dropdown">
           {/* <form class="get-events"> */}
           {/* <form class="get-events" action="/events" method="GET"> */}
          <select id="dropdown-locations" name="dropdown-locations">
@@ -36,6 +48,7 @@ class LocationDropDown extends Component {
           <option key='3' value='New York'>New York</option>
         </select>
         <input id='get-event-button' type="submit" onClick={this.getEvents} value="Search For Local Events" />
+        <button onClick={this.fetchFromAPI}>TEMP Fetch from API</button>
         {/* </form> */}
       </div>
     )

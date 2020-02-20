@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import SideBar from '../components/SideBar.jsx';
-import UpcomingEvents from '../components/UpcomingEvents.jsx';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Button, ButtonToolbar, ButtonGroup, Container, Row, Col } from 'react-bootstrap';
 import ReactModal from 'react-modal';
+import Profile from '../components/Profile'
+import MyEvents from '../components/MyEvents'
+import TrendingEvents from '../components/TrendingEvents'
+import UpcomingEvents from '../components/UpcomingEvents'
+import GoogleAuth from '../components/GoogleAuth'
 
-class MainPage extends Component {
+
+class SidebarContainer extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -18,17 +24,6 @@ class MainPage extends Component {
   submitForm() {
     const inputName = document.querySelector('#nameInput').value;
     console.log('inputName: ', inputName)
-    // if (!!inputName.trim()) {
-    //   collectionsController.collectionNameExists({ name: inputName })
-    //     .catch((err) => console.error("error in checking collection name: ", err))
-    //     .then((found) => {
-    //       if (found) { //if the name already exists
-    //         document.querySelector('#collectionNameInput').setAttribute("style", "border-color: red;");
-    //         document.querySelector('#collectionNameError').setAttribute("style", "display: block");
-    //       }
-    //       else this.saveCollection(inputName)
-    //     })
-    // }
   }
 
   handleOpenModal() {
@@ -48,22 +43,48 @@ class MainPage extends Component {
     }
   }
 
+  checkPassword() {
+    const password1 = document.getElementById('pw1').value; 
+    const password2 = document.getElementById('pw2').value; 
+    if (password1 === '') {
+      alert ("Please enter password"); 
+    }
+    else if (password2 === '') {
+      alert ("Please confirm your password"); 
+    }
+    else if (password1 !== password2) { 
+      alert ("Password did not match. Please try again...") 
+      return false; 
+    } 
+    else { 
+      alert("Password matched. Welcome to DevMeet!") 
+      return true; 
+    } 
+  } 
+
   render () {
     return (
-      <div>
-        <div className="maincontainer">
-          <div>
-            <SideBar
-              loggedIn={this.props.loggedIn}
-              loginHandleClick={this.props.loginHandleClick}
-            />
-          </div>
-          <div>
-            <UpcomingEvents
-              events={this.props.events}
-            />
-          </div>
+      <Router>
+      <div class="sidenav">
+        <div className="title">
+          <div>DeV</div>
+          <div>MeeT</div>
+          <img src={require('../assets/logo.png')}/>
         </div>
+         <Link to="/profile">Profile</Link>
+         <Link to="/events">Events</Link>
+         <Link to="/trending">Trending</Link>
+         <Link to="/upcoming">Upcoming</Link>
+        <GoogleAuth 
+          loggedIn={this.props.loggedIn}
+          loginHandleClick={this.props.loginHandleClick}
+        />
+        <div>
+          <UpcomingEvents
+            events={this.props.events}
+          />
+        </div>
+        <Button className="signup" onClick={this.handleOpenModal}>Signup</Button>
         <ReactModal
           isOpen={this.state.showModal}
           // className="signup"
@@ -78,12 +99,13 @@ class MainPage extends Component {
           <form action='/signup' method="POST">
             <input type="text" name='email' placeholder='Email'/><br></br>
             <input type="text" name='username' placeholder='Username'/><br></br>
-            <input type="text" name='password' placeholder='Password'/><br></br>
+            <input id='pw1' type="password" name='password' placeholder='Password'/><br></br>
+            <input id='pw2' type="password" name='password' placeholder='Confirm Password'/><br></br>
             <input type="text" name='first_name' placeholder='First Name' /><br></br>
             <input type="text" name='last_name' placeholder='Last Name' /><br></br>
             <input type="text" name='role' placeholder='Role' /><br></br>
             <input type="text" name='city_name' placeholder='City Name'/><br></br>
-            <input type="submit" value="Sign Up" />
+            <input type="submit" onClick={this.checkPassword} value="Sign Up" />
           </form>
           <p id="signupError" style={{ display: 'none' }}>Please enter all fields!</p>
           <div>
@@ -91,9 +113,24 @@ class MainPage extends Component {
             <button onClick={this.handleCloseModal}>Cancel</button>
           </div>
         </ReactModal>
+         <Switch>
+         <Route path="/profile">
+          <Profile />
+         </Route>
+         <Route path="/events">
+          <MyEvents />
+         </Route>
+        <Route path="/trending">
+          <TrendingEvents />
+        </Route>
+        <Route path="/upcoming">
+          <UpcomingEvents />
+        </Route>
+      </Switch>
       </div>
+      </Router>
     )
   }
 }
 
-export default MainPage;
+export default SidebarContainer;
