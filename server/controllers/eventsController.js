@@ -21,7 +21,6 @@ eventsController.getEvents = async (req, res, next) => {
     })
     .then(resp => resp.json())
     .then(data => {
-      console.log('data: ', data)
       const newDate = moment(data.date).format('MMMM D, Y')
       eventsArr.push({
         name: data.name.text,
@@ -35,26 +34,25 @@ eventsController.getEvents = async (req, res, next) => {
      })
     .catch(err => console.log(err))
   ))
-
-  console.log('eventsArr: ', eventsArr)
   res.locals.results = eventsArr;
-
-  // const url = 'https://www.eventbriteapi.com/v3/events/93399876545/?expand=venue';
-  // await fetch(url, {
-  //   method: 'GET',
-  //   headers: {
-  //     'Authorization': 'Bearer CPIOTBKKXSDUDM4MXJBM',
-  //     // "Content-Type": 'application/json'
-  //   },
-  // })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log('data in fetch: ', data)
-  //       // console.log('data.name: ', data.name.text)
-  //       res.locals.results = data;
-  //     })
-  //     .catch(err => console.log(err));
   next();
+}
+
+eventsController.saveDB = (req, res, next) => {
+  console.log('savedDB res.locals: ', res.locals)
+  res.locals.results.forEach(event => {
+    const { date, name, description, url, venue } = event;
+    const text = `
+    INSERT INTO events (date, name, description, url, venue)
+    values($1, $2, $3, $4, $5)
+`
+    const values = [date, name, description, url, venue];
+    db.query(text, values)
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
+    console.log('made it')
+    next();
+  })
 }
 
 eventsController.addEvent = (req, res, next) => {
