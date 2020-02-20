@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class UpcomingEvents extends Component {
   constructor(props) {
     super(props)
-
   };
 
   render() {
@@ -15,7 +14,6 @@ class UpcomingEvents extends Component {
     ))
     return (
       <div className="upcomingevents">
-          Upcoming Events...
 
       </div>
     )

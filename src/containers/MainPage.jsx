@@ -8,12 +8,16 @@ class MainPage extends Component {
     super(props);
   };
 
+
   render () {
     return (
         <div className="fullscreen">
             <div className="maincontainer">
                 <div>
-                    <SideBar/>
+                    <SideBar
+                      loggedIn={this.props.loggedIn}
+                      loginHandleClick={this.props.loginHandleClick}
+                    />
                 </div>
                 <div className="googlemaps">
                     <MapDisplay/>
