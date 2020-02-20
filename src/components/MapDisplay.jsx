@@ -18,7 +18,7 @@ class MapDisplay extends Component {
     function Map() {
       return (
           <GoogleMap
-          defaultZoom={8}
+          defaultZoom={10}
           defaultCenter={{lat: 34.052235, lng: -118.243683}}
           >
             <Marker
@@ -33,16 +33,14 @@ class MapDisplay extends Component {
   
   const MapWrapped = withScriptjs(withGoogleMap(Map));
       return (
-        <div>
-          <div style={{ width: '60vw' , height: '40vh'}}>
+          <div className="map">
               <MapWrapped 
               googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyABc2ZRJ4eqDNoO7r_qGSiHwr5drpWYADM'}
               loadingElement={<div style={{height: '100%'}} /> }
               containerElement={<div style={{height: '100%'}} /> }
               mapElement={<div style={{height: '100%'}} /> }
               />
-          </div>
-        </div>   
+          </div>  
       )
   }
 }

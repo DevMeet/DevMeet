@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SideBar from '../components/SideBar.jsx'
 import MapDisplay from '../components/MapDisplay.jsx'
 import UpcomingEvents from '../components/UpcomingEvents.jsx'
+import { Container, Row, Col } from 'react-bootstrap'
 
 class MainPage extends Component {
   constructor (props) {
@@ -26,10 +27,6 @@ class MainPage extends Component {
                 <div>
                     <UpcomingEvents
                       events={this.props.events}
-                      // name={this.props.events.name}
-                      // description={this.props.events.description}
-                      // date={this.props.events.date}
-                      // url={this.props.events.props.url}
                     />
                 </div>
             </div>

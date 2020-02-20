@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
-import { Button, ButtonToolbar, ButtonGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Button, ButtonToolbar, ButtonGroup, Container, Row, Col } from 'react-bootstrap';
 import { GoogleLogin } from 'react-google-login';
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav';
+import NavItem from 'react-bootstrap/NavItem'
+import Profile from './Profile'
+import MyEvents from './MyEvents'
+import TrendingEvents from './TrendingEvents'
+import UpcomingEvents from './UpcomingEvents'
+
+
 
 //Sidebar component that has all the links
 class SideBar extends Component {
@@ -30,23 +39,41 @@ class SideBar extends Component {
                   />)
     }
     return (
-      <div className='mainNavBar'>
-        <ButtonGroup vertical className='buttonContainer'>
-          {loggedIn}
-          <Link to="/myevents">
-            <Button
-            >
-              My Events
-            </Button>
-          </Link>
-          <Link to="/trending">
-            <Button
-            >
-              Trending
-            </Button>
-          </Link>
-        </ButtonGroup>
+      <Router>
+      <div class="sidenav">
+        <div className="title">
+          <div>DeV</div>
+          <div>MeeT</div>
+        </div>
+         <Link to="/profile">Profile</Link>
+         <Link to="/events">Events</Link>
+         <Link to="/trending">Trending</Link>
+         <Link to="/upcoming">Upcoming</Link>
+         <GoogleLogin className="google"
+          clientId="208196216692-cgh2aeaov7v1uqv9h8g1fluafs1oltf3.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+        />
+         <Switch>
+         <Route path="/profile">
+          <Profile />
+         </Route>
+         <Route path="/events">
+          <MyEvents />
+         </Route>
+        <Route path="/trending">
+          <TrendingEvents />
+        </Route>
+        <Route path="/upcoming">
+          <UpcomingEvents />
+        </Route>
+      </Switch>
       </div>
+      </Router>
+
+      
     )
   }
 }
