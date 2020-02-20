@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SideBar from '../components/SideBar.jsx'
 import MapDisplay from '../components/MapDisplay.jsx'
+import UpcomingEvents from '../components/UpcomingEvents.jsx'
 
 class MainPage extends Component {
   constructor (props) {
@@ -16,6 +17,9 @@ class MainPage extends Component {
                 </div>
                 <div className="googlemaps">
                     <MapDisplay/>
+                </div>
+                <div>
+                    <UpcomingEvents/>
                 </div>
             </div>
         </div>
