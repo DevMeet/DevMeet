@@ -1,3 +1,11 @@
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
 /* .fullscreen {
     position: fixed;
     top: 0;
@@ -16,10 +24,9 @@
   grid-template-rows: 9% 20% 35% 35% 1%;
   width: 50%;
   height: 100vh;
-  margin-left:400px;
+  margin-left: 400px;
 }
-
-.title{
+.title {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 50px;
@@ -27,17 +34,18 @@
   font-family: Courier;
   margin-left: -10px;
   text-align: center;
-  background-image: url('./logo.png')
+  background-image: url('./logo.png');
 }
 
 .map {
-  margin-left:160px;
+  margin-left: 160px;
+  margin-left: 160px;
   width: 80vw;
   height: 60vh;
 }
 
 .events-body {
-  margin-left:160px;
+  margin-left: 160px;
   width: 80vw;
 }
 
@@ -47,15 +55,15 @@
 }
 
 .event-info {
-  margin-left:50px;
+  margin-left: 50px;
   padding: 10px;
 }
 
 .heart {
-	height: 22px;
-	margin-left: 2px;
-	margin-top: 2px;
-	width: 16px;
+  height: 22px;
+  margin-left: 2px;
+  margin-top: 2px;
+  width: 16px;
 }
 
 .sidenav {
@@ -104,7 +112,7 @@
   margin: 5% auto;
   width: 600px;
   height: 400px;
-  background: #FFF;
+  background: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
@@ -119,8 +127,8 @@
   height: 400px;
 }
 
-input[type="text"],
-input[type="password"] {
+input[type='text'],
+input[type='password'] {
   display: block;
   box-sizing: border-box;
   margin-bottom: 20px;
@@ -128,15 +136,15 @@ input[type="password"] {
   width: 220px;
   height: 32px;
   border: none;
-  border-bottom: 1px solid #AAA;
+  border-bottom: 1px solid #aaa;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 15px;
   transition: 0.2s ease;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+input[type='text']:focus,
+input[type='password']:focus {
   border-bottom: 2px solid #16a085;
   color: #16a085;
   transition: 0.2s ease;
@@ -176,17 +184,22 @@ input[type="submit"]:active {
   border: 1px solid rgb(216, 216, 211);
   font-size: 15px;
   color: rgb(97, 161, 204);
-  background-color:rgb(243, 243, 243);
-  border-radius:5px;
-  box-shadow:1px 2px #ccc;
+  background-color: rgb(243, 243, 243);
+  border-radius: 5px;
+  box-shadow: 1px 2px #ccc;
 }
 
-
-.signup, .login {
+.signup,
+.login {
   width: 80px;
   /* padding: 6px 8px 6px 16px; */
   text-decoration: none;
   align-items: center;
+  color: rgba(0, 0, 0, 0.54);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+  padding: 0px;
+  border-radius: 2px;
+  border: 1px solid transparent;
   font-size: 14px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.54);
@@ -212,8 +225,8 @@ input[type="submit"]:active {
   margin: 10px;
   color: white;
   font-size: 15px;
-  border-radius:5px;
-  box-shadow:1px 2px rgb(224, 224, 224);
+  border-radius: 5px;
+  box-shadow: 1px 2px rgb(224, 224, 224);
 }
 
 #get-event-button:hover {
@@ -230,7 +243,7 @@ input[type="submit"]:active {
   background-color: rgb(109, 154, 196);
 }
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,300,500');
 *:focus {
   outline: none;
 }
@@ -245,11 +258,59 @@ input[type="submit"]:active {
   margin: 20px;
   color: rgb(61, 61, 61);
   font-size: 15px;
-  border-radius:5px;
-  box-shadow:1px 2px rgb(224, 224, 224);
+  border-radius: 5px;
+  box-shadow: 1px 2px rgb(224, 224, 224);
 }
 
-.website-btn{
+.smallbold {
+  font-size: 9px;
+}
+
+#forgot {
+  border: none;
+}
+
+#or {
+  font-weight: 700;
+  font-variant: small-caps;
+  text-transform: uppercase;
+  margin-top: -19px;
+  margin-left: 43%;
+  width: 32px;
+  height: 16px;
+  text-align: center;
+  background: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  align-self: center;
+}
+#orBox {
+  align-items: center;
+}
+
+#googleLogin {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#loginModal {
+  height: 50%;
+  width: 50%;
+  background: rgb(248, 248, 248);
+  border-radius: 5px;
+  border: 1px solid rgb(216, 216, 211);
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  color: rgb(61, 61, 61);
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 1px 2px rgb(224, 224, 224);
+}
+
+.website-btn {
   background: rgb(209, 226, 238);
 }
 
