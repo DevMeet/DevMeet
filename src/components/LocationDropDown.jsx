@@ -90,7 +90,7 @@ class LocationDropDown extends Component {
   render() {
     // console.log('this is inside locationdropdown', this.props)
     return (
-      <div>
+      <div className="events-body">
          <select className="dropdown" id="dropdown" name="dropdown-locations">
           <option value="services" defaultValue="">Select A Location</option>
           <option key='1' value='Los Angeles'>Los Angeles</option>
