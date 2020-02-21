@@ -28,7 +28,7 @@ class SidebarContainer extends Component {
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleOpenModalLogin = this.handleOpenModalLogin.bind(this);
-    this.handleCloseModalLogin = this.handleCloseModalLogin.bind(this);
+    // this.handleCloseModalLogin = this.handleCloseModalLogin.bind(this);
     this.loginUser = this.loginUser.bind(this);
     this.submitForm = this.submitForm.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -106,7 +106,7 @@ class SidebarContainer extends Component {
           <Button color="secondary" className="login" onClick={this.handleOpenModalLogin}>
             Log in
           </Button>
-          <ReactModal id="loginModal" isOpen={this.state.showModalLogin}>
+          <ReactModal isOpen={this.state.showModalLogin}>
             <h2>Log in:</h2>
             <p
               className="smallbold"
@@ -131,6 +131,7 @@ class SidebarContainer extends Component {
                 Log in
               </Button>
             </form>
+            <br />
             <p className="smallbold">
               <Button
                 id="forgot"
@@ -154,11 +155,11 @@ class SidebarContainer extends Component {
                   loginHandleClick={this.props.loginHandleClick}
                 />
               </div>
-            </div>
-            {/* <div>
+              {/* <div>
               {// <button onClick={this.submitForm}>Submit</button>}
               <button onClick={this.handleCloseModalLogin}>Cancel</button>
             </div> */}
+            </div>
           </ReactModal>
           <div>
             <UpcomingEvents events={this.props.events} />

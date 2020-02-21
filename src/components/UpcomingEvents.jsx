@@ -4,6 +4,7 @@ class UpcomingEvents extends Component {
   constructor(props) {
     super(props)
   };
+  
 
   render() {
 

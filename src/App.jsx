@@ -10,11 +10,12 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       name: '',
-      email: ''
+      email: '',
+      selectedLocation: '',
+      events: []
     };
     this.loginHandleClick = this.loginHandleClick.bind(this);
   }
-
   loginHandleClick() {
     this.setState({ loggedIn: true });
   }
@@ -32,14 +33,14 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.events.name);
+    // console.log(this.state.events.name);
   }
 
   render() {
     return (
       <HashRouter>
         <div className="fullscreen">
-          <MainPage />
+          <MainPage selectedLocation={this.state.selectedLocation} events={this.state.events} />
           <SidebarContainer
             events={this.state.events}
             loggedIn={this.state.loggedIn}

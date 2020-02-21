@@ -6,6 +6,14 @@
   right: 0;
   overflow: auto;
 }
+/* .fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+  } */
 
 .mainContainer {
   background-color: #fff;
@@ -14,8 +22,9 @@
   position: fixed;
   grid-template-columns: 15% 40% 45%;
   grid-template-rows: 9% 20% 35% 35% 1%;
-  width: 100vw;
+  width: 50%;
   height: 100vh;
+  margin-left: 400px;
 }
 .title {
   padding: 6px 8px 6px 16px;
@@ -30,8 +39,31 @@
 
 .map {
   margin-left: 160px;
+  margin-left: 160px;
   width: 80vw;
   height: 60vh;
+}
+
+.events-body {
+  margin-left: 160px;
+  width: 80vw;
+}
+
+.venue-info {
+  width: 200px;
+  padding: 10px;
+}
+
+.event-info {
+  margin-left: 50px;
+  padding: 10px;
+}
+
+.heart {
+  height: 22px;
+  margin-left: 2px;
+  margin-top: 2px;
+  width: 16px;
 }
 
 .sidenav {
@@ -41,7 +73,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(49, 49, 49);
+  background-color: rgb(255, 255, 255);
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -49,12 +81,15 @@
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 20px;
-  color: #ffffff;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
   display: block;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
   margin-left: 0px;
   border-bottom: 1px solid rgba(196, 193, 193, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
 }
 
 .sidenav a:hover {
@@ -67,13 +102,98 @@
   padding: 8px;
 }
 
-.dropdown {
-  margin-left: 250px;
+.google {
+  margin-left: 0px;
+  padding: 15px 10px 6px 16px;
 }
 
-.signup {
-  background-color: rbg(255, 255, 255);
-  display: inline-flex;
+#login-box {
+  position: relative;
+  margin: 5% auto;
+  width: 600px;
+  height: 400px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+}
+
+input[type='text'],
+input[type='password'] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+input[type='text']:focus,
+input[type='password']:focus {
+  border-bottom: 2px solid #16a085;
+  color: #16a085;
+  transition: 0.2s ease;
+}
+/* input[type="submit"] {
+  margin-top: 28px;
+  width: 120px;
+  height: 32px;
+  background: #16a085;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+} */
+
+/* input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+} */
+
+.dropdown {
+  /* margin-left: 160px; */
+  width: 300px;
+  height: 30px;
+  border: 1px solid rgb(216, 216, 211);
+  font-size: 15px;
+  color: rgb(97, 161, 204);
+  background-color: rgb(243, 243, 243);
+  border-radius: 5px;
+  box-shadow: 1px 2px #ccc;
+}
+
+.signup,
+.login {
+  width: 80px;
+  /* padding: 6px 8px 6px 16px; */
+  text-decoration: none;
   align-items: center;
   color: rgba(0, 0, 0, 0.54);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
@@ -82,6 +202,53 @@
   border: 1px solid transparent;
   font-size: 14px;
   font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+  font-family: Roboto, sans-serif;
+  margin: 5px;
+}
+
+.events {
+  margin-left: 500px;
+}
+
+#get-event-button {
+  font-family: Roboto, sans-serif;
+  background: rgb(97, 161, 204);
+  border-radius: 5px;
+  border: 1px solid rgb(216, 216, 211);
+  display: inline-block;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 200px;
+  margin: 10px;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 1px 2px rgb(224, 224, 224);
+}
+
+#get-event-button:hover {
+  color: white;
+  background: rgb(117, 136, 150);
+  border: 1px solid rgb(216, 216, 211);
+}
+
+#get-event-button:focus {
+  outline: none;
+}
+
+#get-event-button:hover {
+  background-color: rgb(109, 154, 196);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,300,500');
+*:focus {
+  outline: none;
+}
+
+.event-box {
   font-family: Roboto, sans-serif;
 }
 
@@ -121,4 +288,43 @@
 #loginModal {
   height: 50%;
   width: 50%;
+  background: rgb(248, 248, 248);
+  border-radius: 5px;
+  border: 1px solid rgb(216, 216, 211);
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  color: rgb(61, 61, 61);
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 1px 2px rgb(224, 224, 224);
+}
+
+.website-btn {
+  background: rgb(209, 226, 238);
+}
+
+h1 {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+h2 {
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 12px;
+}
+
+h4 {
+  font-size: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+  margin-left: 0px;
+  border-bottom: 1px solid rgba(196, 193, 193, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
 }

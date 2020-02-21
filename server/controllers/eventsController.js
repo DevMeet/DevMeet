@@ -53,12 +53,12 @@ eventsController.getEvents = async (req, res, next) => {
 eventsController.saveDB = (req, res, next) => {
   // console.log('savedDB res.locals: ', res.locals)
   res.locals.results.forEach(event => {
-    const { date, name, description, eventid, url, venue, city } = event;
+    const { date, name, description, eventid, url, venue, city, longitude, latitude } = event;
     const text = `
-    INSERT INTO events (date, name, description, eventid, url, venue, city)
-    values($1, $2, $3, $4, $5, $6, $7)
+    INSERT INTO events (date, name, description, eventid, url, venue, city, longitude, latitude)
+    values($1, $2, $3, $4, $5, $6, $7, $8, $9)
 `;
-    const values = [date, name, description, eventid, url, venue, city];
+    const values = [date, name, description, eventid, url, venue, city, longitude, latitude];
     db.query(text, values)
       .then(response => console.log(response))
       .catch(err => console.log(err));
@@ -84,19 +84,6 @@ eventsController.addEvent = (req, res, next) => {
       `;
   const values2 = [date, name, description, eventid, url, venue, city];
   db.query(text2, values2)
-    .then(response => console.log(response))
-    .catch(err => console.log(err));
-  next();
-};
-
-eventsController.retrieveFromDB = (req, res, next) => {
-  const text = `
-          SELECT date, name, description, url, venue, city
-          FROM events
-          WHERE city=$1
-      `;
-  const values = [city];
-  db.query(text, values)
     .then(response => console.log(response))
     .catch(err => console.log(err));
   next();
@@ -128,4 +115,24 @@ eventsController.createEvent = (req, res, next) => {
   next();
 };
 
+eventsController.retrieveFromDB = async (req, res, next) => {
+  const text = `
+          SELECT * 
+          FROM events
+      `;
+  await db
+    .query(text)
+    .then(response => {
+      const eventsArr = [];
+      response.rows.forEach(event => {
+        if (event.city === req.body.selectedLocation) {
+          eventsArr.push(event);
+        }
+      });
+      res.locals.events = eventsArr;
+      // console.log('this is res.events:', res.locals.events)
+    })
+    .catch(err => console.log(err));
+  return next();
+};
 module.exports = eventsController;

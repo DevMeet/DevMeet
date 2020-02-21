@@ -69,6 +69,7 @@ userController.comparePassword = (req, res, next) => {
 };
 
 userController.verifyUser = (req, res, next) => {
+  // console.log('req.body: ', req.body)
   const { username, password } = req.body;
   const text = `
           SELECT username
