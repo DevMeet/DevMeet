@@ -1,11 +1,11 @@
 .fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
 
 .mainContainer {
   background-color: #fff;
@@ -17,7 +17,7 @@
   width: 100vw;
   height: 100vh;
 }
-.title{
+.title {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 50px;
@@ -25,11 +25,11 @@
   font-family: Courier;
   margin-left: -10px;
   text-align: center;
-  background-image: url('./logo.png')
+  background-image: url('./logo.png');
 }
 
-.map{
-  margin-left:160px;
+.map {
+  margin-left: 160px;
   width: 80vw;
   height: 60vh;
 }
@@ -54,7 +54,7 @@
   display: block;
   font-family: sans-serif;
   margin-left: 0px;
-  border-bottom: 1px solid rgba(196, 193, 193, 0.3)
+  border-bottom: 1px solid rgba(196, 193, 193, 0.3);
 }
 
 .sidenav a:hover {
@@ -65,11 +65,6 @@
   margin-left: 160px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 8px;
-}
-
-.google {
-  margin-left: 20px;
-  padding: 15px 10px 6px 16px;
 }
 
 .dropdown {
@@ -84,8 +79,46 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
   padding: 0px;
   border-radius: 2px;
-  border:1px solid transparent;
+  border: 1px solid transparent;
   font-size: 14px;
   font-weight: 500;
   font-family: Roboto, sans-serif;
+}
+
+.smallbold {
+  font-size: 9px;
+}
+
+#forgot {
+  border: none;
+}
+
+#or {
+  font-weight: 700;
+  font-variant: small-caps;
+  text-transform: uppercase;
+  margin-top: -19px;
+  margin-left: 43%;
+  width: 32px;
+  height: 16px;
+  text-align: center;
+  background: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  align-self: center;
+}
+#orBox {
+  align-items: center;
+}
+
+#googleLogin {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#loginModal {
+  height: 50%;
+  width: 50%;
 }
