@@ -16,10 +16,11 @@ class App extends Component {
       email: '',
       selectedLocation: '',
       events: [],
+      eventCoordinates: [{lng: -118.39088770000001, lat: 33.9759755 }, {lng: -118.25439169999999, lat: 34.0510948 }, {lng: -118.33998989999998, lat: 34.102321}],
+      eventClicked: false,
     };
     this.loginHandleClick = this.loginHandleClick.bind(this);
   }
-
   loginHandleClick() {
     this.setState({ loggedIn: true })
   }
@@ -48,6 +49,8 @@ class App extends Component {
           <MainPage
             selectedLocation={this.state.selectedLocation}
             events={this.state.events}
+            eventCoordinates={this.state.eventCoordinates}
+            eventClicked={this.state.eventClicked}
           />
           <SidebarContainer
             events={this.state.events}

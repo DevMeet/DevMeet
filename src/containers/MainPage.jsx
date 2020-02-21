@@ -15,10 +15,11 @@ class MainPage extends Component {
           <div className="fullscreen">
           <div className="maincontainer">
               <div className="googlemaps">
-                  <MapDisplay/>
                   <LocationDropDown
                     selectedLocation={this.props.selectedLocation}
                     events={this.props.events}
+                    eventCoordinates={this.props.eventCoordinates}
+                    eventClicked={this.props.eventClicked}
                   />
               </div>
           </div>
