@@ -16,6 +16,7 @@ class Events extends Component {
       url={event.url}
       venue={event.venue}
       city={event.city}
+      id={event.eventid}
       />
     ))
     return (

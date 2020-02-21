@@ -5,9 +5,10 @@ const moment = require('moment');
 const eventsController = {};
 
 eventsController.getEvents = async (req, res, next) => {
-  const urls = ['https://www.eventbriteapi.com/v3/events/93399876545/?expand=venue', 
+  const urls = [
+    'https://www.eventbriteapi.com/v3/events/93399876545/?expand=venue', 
   'https://www.eventbriteapi.com/v3/events/79491393899/?expand=venue', 
-  'https://www.eventbriteapi.com/v3/events/94930643109/?expand=venue' 
+  'https://www.eventbriteapi.com/v3/events/94930643109/?expand=venue', 
   // 'https://www.eventbriteapi.com/v3/events/75309640161/?expand=venue',
   // 'https://www.eventbriteapi.com/v3/events/80212544881/?expand=venue',
   // 'https://www.eventbriteapi.com/v3/events/81264788169/?expand=venue',
@@ -40,6 +41,7 @@ eventsController.getEvents = async (req, res, next) => {
         latitude: data.venue.latitude,
         longitude: data.venue.longitude,
       });
+      // console.log('eventsArr: ', eventsArr)
      })
     .catch(err => console.log(err))
   ))

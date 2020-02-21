@@ -29,7 +29,7 @@ class GoogleAuth extends Component {
     }
     return (
         <div>
-         <GoogleLogin className="google"
+         <GoogleLogin
           clientId="208196216692-cgh2aeaov7v1uqv9h8g1fluafs1oltf3.apps.googleusercontent.com"
           buttonText="Login with Google"
           onSuccess={responseGoogle}

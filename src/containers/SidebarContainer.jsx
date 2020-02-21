@@ -43,7 +43,6 @@ class SidebarContainer extends Component {
   handleCloseLogin() {
     this.setState({ ...this.state, showLoginModal: false });
   }
-
   checkPassword() {
     const password1 = document.getElementById('pw1').value; 
     const password2 = document.getElementById('pw2').value; 
@@ -61,25 +60,20 @@ class SidebarContainer extends Component {
       alert("Password matched. Welcome to DevMeet!") 
       return true; 
     } 
-  } 
-
+  }   
   render () {
     return (
       <Router>
       <div class="sidenav">
         <div className="title">
-          <div>DeV</div>
-          <div>MeeT</div>
-          <img src={require('../assets/logo.png')}/>
+          {/* <div>DeV</div>
+          <div>MeeT</div> */}
+          <img src={require('../assets/logo2.png')}/>
         </div>
          <Link to="/profile">Profile</Link>
          <Link to="/events">Events</Link>
          <Link to="/trending">Trending</Link>
          <Link to="/upcoming">Upcoming</Link>
-        <GoogleAuth 
-          loggedIn={this.props.loggedIn}
-          loginHandleClick={this.props.loginHandleClick}
-        />
         {/* <div>
           <UpcomingEvents
             events={this.props.events}
@@ -87,6 +81,11 @@ class SidebarContainer extends Component {
         </div> */}
         <Button className="signup" onClick={this.handleOpenSignup}>Signup</Button>
         <Button className="login" onClick={this.handleOpenLogin}>Login</Button>
+
+        <GoogleAuth className="google"
+          loggedIn={this.props.loggedIn}
+          loginHandleClick={this.props.loginHandleClick}
+        />
         <ReactModal
           isOpen={this.state.showSignupModal}
         >
@@ -119,7 +118,7 @@ class SidebarContainer extends Component {
             <button onClick={this.handleCloseLogin}>Cancel</button>
           </div>
         </ReactModal>
-         <Switch>
+         {/* <Switch>
          <Route path="/profile">
           <Profile />
          </Route>
@@ -135,7 +134,7 @@ class SidebarContainer extends Component {
         <Route path="/login">
           <Login />
         </Route>
-      </Switch>
+      </Switch> */}
       </div>
       </Router>
     )
