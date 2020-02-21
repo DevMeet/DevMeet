@@ -250,6 +250,16 @@ input[type="submit"]:active {
 
 .event-box {
   font-family: Roboto, sans-serif;
+  background: rgb(248, 248, 248);
+  border-radius: 5px;
+  border: 1px solid rgb(216, 216, 211);
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  color: rgb(61, 61, 61);
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 1px 2px rgb(224, 224, 224);
 }
 
 .smallbold {

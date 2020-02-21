@@ -91,7 +91,7 @@ eventsController.addEvent = (req, res, next) => {
 
 eventsController.createEvent = (req, res, next) => {
   // destructuring req.body for user input of events
-  const { date, name, description, eventId, url, venue, city } = req.body;
+  const { date, name, description, eventId, url, venue, city, longitude, latitude } = req.body;
   // prefix any user created event with 1000000 to differentiate in queries
   const cryptoId = `1000000${eventId.toString()}`;
   // slicing description to meet field level character length constraints
@@ -100,11 +100,11 @@ eventsController.createEvent = (req, res, next) => {
     .slice(0, 238)
     .join('');
   // creating values array for db insertion
-  const newEvent = [date, name, descShort, cryptoId, url, venue, city];
+  const newEvent = [date, name, descShort, cryptoId, url, venue, city, longitude, latitude];
   // query string with parameters for newEvent values
   const dbEntry = `
-  INSERT INTO events (date, name, description, eventid, url, venue, city)
-  values($1, $2, $3, $4, $5, $6, $7)
+  INSERT INTO events (date, name, description, eventid, url, venue, city, longitude, latitude)
+  values($1, $2, $3, $4, $5, $6, $7, $8, $9)
   `;
 
   db.query(dbEntry, newEvent)

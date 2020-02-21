@@ -93,7 +93,7 @@ class SidebarContainer extends Component {
           <div className="title">
             <div>DeV</div>
             <div>MeeT</div>
-            <img src={require('../assets/logo.png')} />
+            {/* <img src={require('../assets/logo.png')} /> */}
           </div>
           <Link to="/profile">Profile</Link>
           <Link to="/events">Events</Link>
