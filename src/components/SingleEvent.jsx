@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-const moment = require('moment');
+import moment from 'moment';
+import heart from '../assets/love.png'
 
 class SingleEvent extends Component {
   constructor(props) {
@@ -12,14 +13,15 @@ class SingleEvent extends Component {
       <div className="event-box">
         <h1>{this.props.name}</h1>
         <div style={{ display: 'flex' }}>
-          <div>
-            <h2>Venue: {this.props.venue}</h2>
-            <h2>{this.props.city}</h2>
+          <div className="venue-info">
+            <h2>{this.props.venue}</h2>
+            <h3>{this.props.city}</h3>
           </div>
-          <div>
+          <div className="event-info">
             <h3>{newDate}</h3>
             <h4>Description: {this.props.description}</h4>
-            <h4><a href={this.props.url}>Visit Website</a></h4>
+            <h4><a href={this.props.url} className='website-btn'>Visit Website</a></h4>
+            {/* <img className='heart' src={require('../assets/love.png')} id={this.props.id} /> */}
           </div>
         </div>
       </div>
