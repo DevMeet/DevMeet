@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Events from './Events.jsx';
+import MapDisplay from '../components/MapDisplay.jsx'
 
 
 class LocationDropDown extends Component {
@@ -27,7 +28,8 @@ class LocationDropDown extends Component {
         ...this.state
       }, () => {
         this.setState({
-          events: data.events
+          events: data.events,
+          eventClicked: true
         })
       })
     })
@@ -55,6 +57,7 @@ class LocationDropDown extends Component {
   }
 
   componentDidUpdate() {
+    console.log(this.state)
     // console.log(this.props.events)
     // let e = document.getElementById("dropdown");
     // let selectedLocation = e.options[e.selectedIndex].text;
@@ -90,6 +93,10 @@ class LocationDropDown extends Component {
   render() {
     // console.log('this is inside locationdropdown', this.props)
     return (
+      <div>
+        <MapDisplay
+        events={this.state.events}
+        />
       <div className="events-body">
          <select className="dropdown" id="dropdown" name="dropdown-locations">
           <option value="services" defaultValue="">Select A Location</option>
@@ -103,6 +110,7 @@ class LocationDropDown extends Component {
         <Events className="events"
           events={this.state.events}
         />
+      </div>
       </div>
     )
   }

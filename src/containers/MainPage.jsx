@@ -17,13 +17,14 @@ class MainPage extends Component {
   render () {
     return (
       <Container>
-        <div className="maincontainer">
-            <MapDisplay/>
-            <LocationDropDown
-              selectedLocation={this.props.selectedLocation}
-              events={this.props.events}
-            />
-        </div>
+          <div className="maincontainer">
+              <div className="googlemaps">
+                  <LocationDropDown
+                    selectedLocation={this.props.selectedLocation}
+                    events={this.props.events}
+                  />
+              </div>
+          </div>
       </Container>
     )
   }

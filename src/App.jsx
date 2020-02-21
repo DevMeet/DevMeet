@@ -19,7 +19,6 @@ class App extends Component {
     };
     this.loginHandleClick = this.loginHandleClick.bind(this);
   }
-
   loginHandleClick() {
     this.setState({ loggedIn: true })
   }
