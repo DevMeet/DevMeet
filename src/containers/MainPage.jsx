@@ -18,8 +18,6 @@ class MainPage extends Component {
                   <LocationDropDown
                     selectedLocation={this.props.selectedLocation}
                     events={this.props.events}
-                    eventCoordinates={this.props.eventCoordinates}
-                    eventClicked={this.props.eventClicked}
                   />
               </div>
           </div>

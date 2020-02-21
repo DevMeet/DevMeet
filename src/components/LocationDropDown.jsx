@@ -96,8 +96,6 @@ class LocationDropDown extends Component {
       <div>
         <MapDisplay
         events={this.state.events}
-        eventClicked={this.props.eventClicked}
-        eventCoordinates={this.props.eventCoordinates}
         />
          <select id="dropdown" name="dropdown-locations">
           <option value="services" defaultValue="">Select A Location</option>
